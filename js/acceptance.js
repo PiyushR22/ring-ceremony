@@ -93,17 +93,6 @@
       stepperLabel.textContent = texts.guestCountLabel;
     }
 
-    // Change Response Links
-    const changeAcceptedBtn = document.getElementById("btnChangeAccepted");
-    if (changeAcceptedBtn && texts.changeResponse) {
-      changeAcceptedBtn.textContent = texts.changeResponse;
-    }
-
-    const changeMindBtn = document.getElementById("btnChangeMindAccept");
-    if (changeMindBtn && texts.changeMindAccept) {
-      changeMindBtn.textContent = texts.changeMindAccept;
-    }
-
     // If currently displaying confirmed or declined, refresh dynamic names
     if (currentResponse && currentResponse.status === "accepted") {
       updateConfirmedMessage(texts);
@@ -331,20 +320,6 @@
     const btnDecline = document.getElementById("btnDeclineInvite");
     if (btnDecline) {
       btnDecline.addEventListener("click", handleDecline);
-    }
-
-    const btnChangeAccepted = document.getElementById("btnChangeAccepted");
-    if (btnChangeAccepted) {
-      btnChangeAccepted.addEventListener("click", () => {
-        showViewState("form");
-      });
-    }
-
-    const btnChangeMindAccept = document.getElementById("btnChangeMindAccept");
-    if (btnChangeMindAccept) {
-      btnChangeMindAccept.addEventListener("click", () => {
-        showViewState("form");
-      });
     }
 
     // Check device persistence via ResponseService

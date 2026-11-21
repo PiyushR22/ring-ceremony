@@ -55,8 +55,6 @@ const CONFIG = {
         cantWait: "We can't wait to celebrate with you.",
         declineMsgPrefix: "We will miss you, ",
         declineMsgSuffix: ". Thank you for letting us know.",
-        changeMindAccept: "Changed your mind? Accept invitation",
-        changeResponse: "Need to update? Change response",
         errorMsg: "Something went wrong, please try again."
       },
       hi: {
@@ -70,8 +68,6 @@ const CONFIG = {
         cantWait: "हम आपके साथ इस उत्सव को मनाने के लिए उत्सुक हैं।",
         declineMsgPrefix: "हमें आपकी कमी खलेगी, ",
         declineMsgSuffix: "। हमें सूचित करने के लिए धन्यवाद।",
-        changeMindAccept: "अपना विचार बदलें? निमंत्रण स्वीकार करें",
-        changeResponse: "उत्तर बदलना चाहते हैं? यहाँ क्लिक करें",
         errorMsg: "कुछ त्रुटि हुई, कृपया पुनः प्रयास करें।"
       }
     }
