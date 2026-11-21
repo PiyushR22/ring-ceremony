@@ -1,0 +1,685 @@
+/* ==========================================================================
+   css/chapters.css - Nine Full-Screen Luxury Editorial Chapters
+   Concept: "Midnight & Gold Foil"
+   Features: CSS scroll-snap, IntersectionObserver fade-and-rise reveals,
+             dark/ivory alternating paper textures, responsive fluid typography.
+   ========================================================================== */
+
+/* The Scroll-Snap Chapters Container */
+.chapters-flow {
+  width: 100%;
+  position: relative;
+  scroll-snap-type: y proximity;
+}
+
+/* Master Chapter Framework (Each ~100dvh with 100vh fallback) */
+.chapter-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 5vw, 4rem);
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+/* Reveal Animation on Scroll (IntersectionObserver adds .is-in-view) */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s var(--ease-cinema), transform 1.1s var(--ease-cinema);
+  will-change: opacity, transform;
+}
+
+.chapter-section.is-in-view .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.chapter-section.is-in-view .delay-1 { transition-delay: 0.15s; }
+.chapter-section.is-in-view .delay-2 { transition-delay: 0.3s; }
+.chapter-section.is-in-view .delay-3 { transition-delay: 0.45s; }
+.chapter-section.is-in-view .delay-4 { transition-delay: 0.6s; }
+.chapter-section.is-in-view .delay-5 { transition-delay: 0.75s; }
+
+/* ==========================================================================
+   CHAPTER 1: COVER (Dark Noir)
+   ========================================================================== */
+.ch-cover {
+  background-color: var(--noir);
+  text-align: center;
+}
+
+.cover-light-bloom {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(280px, 60vw, 650px);
+  height: clamp(280px, 60vw, 650px);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--bordeaux-glow) 0%, transparent 68%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+}
+
+/* Giant Monogram */
+.cover-monogram-circle {
+  width: clamp(74px, 15vw, 104px);
+  height: clamp(74px, 15vw, 104px);
+  border-radius: 50%;
+  border: 1px solid var(--hairline-foil);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  background: rgba(22, 18, 20, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cover-monogram-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* Uppercase Spaced Tagline */
+.cover-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 1.8vw, 0.78rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Huge Stacked Bodoni Couple Names */
+.cover-names-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+}
+
+.cover-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 11vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.cover-ampersand {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  color: var(--foil-gold);
+  line-height: 1;
+  margin: 0.2rem 0;
+}
+
+/* Date Rule below names */
+.cover-date-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.cover-date-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ivory);
+}
+
+/* Subtle Animated Scroll Indicator Ring */
+.cover-scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.scroll-hint-label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-ring-drop {
+  width: 14px;
+  height: 22px;
+  border: 1px solid var(--hairline-foil);
+  border-radius: 12px;
+  position: relative;
+}
+
+.scroll-ring-drop::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--foil-gold);
+  animation: scrollDotDrop 2.2s infinite ease-in-out;
+}
+
+@keyframes scrollDotDrop {
+  0% { transform: translate(-50%, 0); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translate(-50%, 10px); opacity: 0; }
+}
+
+/* ==========================================================================
+   CHAPTER 2: THE INVITATION (Ivory Paper Grain)
+   ========================================================================== */
+.ch-invitation {
+  background-color: var(--ivory);
+  color: var(--noir);
+  text-align: center;
+}
+
+.invitation-column {
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.guest-personalized-salutation {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #7A5B28;
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+}
+
+.invitation-lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.7rem, 1.8vw, 0.8rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #5C5248;
+  margin-bottom: 1.5rem;
+}
+
+.invitation-couple-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  font-weight: 600;
+  color: var(--noir);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.invitation-prose {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  line-height: 1.7;
+  color: #38322E;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.invitation-flourish-divider {
+  width: 90px;
+  height: 35px;
+  margin: 1.5rem auto;
+}
+
+.invitation-flourish-divider svg {
+  width: 100%;
+  height: 100%;
+}
+
+.invitation-blessings {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.9vw, 0.82rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #6E6359;
+  line-height: 1.8;
+}
+
+/* ==========================================================================
+   CHAPTER 3: THE DATE & COUNTDOWN (Dark Noir)
+   ========================================================================== */
+.ch-date {
+  background-color: var(--noir);
+  text-align: center;
+}
+
+.date-hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  margin-bottom: 3.5rem;
+}
+
+/* Enormous Bodoni Day Number */
+.date-huge-num {
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 26vw, 16rem);
+  font-weight: 700;
+  line-height: 0.85;
+}
+
+.date-side-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 6px;
+}
+
+.date-meta-month-year {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 2.5vw, 1.4rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  font-weight: 500;
+}
+
+.date-meta-weekday {
+  font-family: var(--font-sans);
+  font-size: clamp(0.7rem, 2vw, 0.95rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--foil-gold);
+}
+
+.date-meta-hairline {
+  width: 60px;
+  height: 1px;
+  background: var(--hairline-foil);
+  margin: 6px 0;
+}
+
+/* ==========================================================================
+   CHAPTER 4: THE CELEBRATION (Split Layout: Ivory/Dark)
+   ========================================================================== */
+.ch-celebration {
+  background-color: var(--ink);
+  padding: 0;
+}
+
+.celebration-split-grid {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Left Arched Window Mehrab Panel */
+.celebration-arch-col {
+  background: linear-gradient(180deg, var(--noir) 0%, var(--bordeaux) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  position: relative;
+  border-bottom: 1px solid var(--hairline-foil);
+}
+
+.mehrab-arch-sanctuary {
+  width: 100%;
+  max-width: 320px;
+  height: 440px;
+  border: 1px solid var(--hairline-foil);
+  border-radius: 999px 999px 0 0;
+  background: radial-gradient(circle at 50% 30%, rgba(243, 226, 174, 0.12) 0%, transparent 70%);
+  box-shadow: inset 0 2px 12px rgba(233, 208, 143, 0.25), 0 10px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 1.5rem 2.2rem;
+  position: relative;
+}
+
+.solitaire-vector-hero {
+  width: 95px;
+  height: 95px;
+}
+
+.solitaire-vector-hero svg {
+  width: 100%;
+  height: 100%;
+}
+
+.arch-center-script {
+  font-family: var(--font-script);
+  font-size: 2.2rem;
+  color: var(--ivory);
+  line-height: 1;
+}
+
+.arch-tagline-caps {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--foil-gold);
+}
+
+/* Right Details Column */
+.celebration-details-col {
+  background-color: var(--ivory);
+  color: var(--noir);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4.5rem);
+}
+
+.details-typographic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 520px;
+}
+
+.detail-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detail-label-spaced {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #8C6A2E;
+  font-weight: 600;
+}
+
+.detail-headline-val {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.2vw, 2rem);
+  font-weight: 600;
+  color: var(--noir);
+  line-height: 1.25;
+}
+
+.detail-subnote-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
+  color: #635A52;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CHAPTER 5: PROGRAMME (Dark Noir Timeline)
+   ========================================================================== */
+.ch-programme {
+  background-color: var(--noir);
+  text-align: center;
+}
+
+.programme-container {
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--foil-gold);
+  margin-bottom: 0.8rem;
+}
+
+.section-serif-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 2.8rem;
+}
+
+/* Vertical Timeline Track */
+.timeline-vertical-flow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 2.2rem;
+}
+
+.timeline-vertical-flow::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 1px;
+  background: var(--hairline-foil);
+}
+
+.timeline-node-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.timeline-node-ring {
+  position: absolute;
+  left: -2.2rem;
+  top: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid var(--foil-gold);
+  background: var(--noir);
+  box-shadow: 0 0 10px rgba(184, 146, 63, 0.4);
+}
+
+.timeline-time-caps {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--foil-gold);
+  margin-bottom: 2px;
+}
+
+.timeline-event-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-style: italic;
+  color: var(--ivory);
+}
+
+/* ==========================================================================
+   CHAPTER 6: THE VENUE (Ivory)
+   ========================================================================== */
+.ch-venue {
+  background-color: var(--ivory);
+  color: var(--noir);
+  text-align: center;
+}
+
+.venue-content-wrapper {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.venue-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  color: var(--noir);
+  margin-bottom: 0.8rem;
+}
+
+.venue-address-line {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: #4A423B;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 1.5rem;
+}
+
+.venue-actions-row {
+  max-width: 320px;
+  margin: 0 auto 1.8rem auto;
+  width: 100%;
+}
+
+/* Styled Map Container with Foil Frame */
+.venue-map-card {
+  width: 100%;
+  height: clamp(220px, 35vh, 320px);
+  border: 1px solid var(--hairline-foil);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+  background: #EFE8DC;
+  position: relative;
+}
+
+.venue-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(80%) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+
+.venue-map-card:hover .venue-map-iframe {
+  filter: grayscale(0%);
+}
+
+/* ==========================================================================
+   CHAPTER 7: RSVP & ACTIONS (Bordeaux Gradient)
+   ========================================================================== */
+.ch-rsvp {
+  background: radial-gradient(circle at center, #350F18 0%, var(--noir) 100%);
+  text-align: center;
+}
+
+.rsvp-box-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-deadline-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--foil-bright);
+  margin-bottom: 2.8rem;
+}
+
+.rsvp-buttons-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   CHAPTER 8: CLOSING (Noir)
+   ========================================================================== */
+.ch-closing {
+  background-color: var(--noir);
+  text-align: center;
+  position: relative;
+}
+
+.closing-content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.closing-script-quote {
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 6.5vw, 4.2rem);
+  color: var(--ivory);
+  line-height: 1.15;
+  margin-bottom: 2.5rem;
+}
+
+.closing-monogram-emblem {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-foil);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.8rem;
+}
+
+.closing-monogram-emblem span {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.closing-love-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.closing-family-host {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--ivory);
+}
+
+.closing-heart-ring-icon {
+  width: 24px;
+  height: 24px;
+  margin-top: 1.5rem;
+}

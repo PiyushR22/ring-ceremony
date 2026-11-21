@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" fill="none">
+  <defs>
+    <!-- Blush Satin Lining Gradient -->
+    <radialGradient id="satinLining" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FAF4FA" />
+      <stop offset="45%" stop-color="#E9E2F0" />
+      <stop offset="100%" stop-color="#CFC6E0" />
+    </radialGradient>
+    <radialGradient id="ringGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(246, 244, 248, 0.9)" />
+      <stop offset="40%" stop-color="rgba(201, 139, 139, 0.4)" />
+      <stop offset="100%" stop-color="rgba(201, 139, 139, 0)" />
+    </radialGradient>
+  </defs>
+
+  <!-- Box Interior Velvet Cavity Wall -->
+  <path d="M30 90 L36 150 Q38 158 46 160 L154 160 Q162 158 164 150 L170 90 Z" fill="#181B30" stroke="#C98B8B" stroke-width="1.2"/>
+
+  <!-- Blush Satin Pillow Cushion -->
+  <path d="M38 96 C38 96 46 84 100 84 C154 84 162 96 162 96 C162 96 164 148 152 152 C140 156 60 156 48 152 C36 148 38 96 38 96 Z" fill="url(#satinLining)" stroke="#C98B8B" stroke-width="1"/>
+  
+  <!-- Velvet Ring Slot Slit -->
+  <ellipse cx="100" cy="116" rx="28" ry="4" fill="#14172B" stroke="#C98B8B" stroke-width="0.8"/>
+
+  <!-- Magical Glow Center -->
+  <circle class="ring-glow-core" cx="100" cy="95" r="32" fill="url(#ringGlow)" opacity="0.85"/>
+
+  <!-- Solitaire Diamond Ring Standing in Slit -->
+  <g class="hero-solitaire-ring">
+    <!-- Ring Band Arc Emerging from Slot -->
+    <path d="M86 116 C86 98 114 98 114 116" stroke="#C98B8B" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M89 116 C89 101 111 101 111 116" stroke="#FAF4FA" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- 4-Prong Setting Mount -->
+    <path d="M94 92 L91 84 L109 84 L106 92 Z" fill="#E9E5EF" stroke="#C98B8B" stroke-width="1.2"/>
+
+    <!-- Solitaire Diamond Gem (Faceted) -->
+    <polygon points="100 74, 110 82, 107 88, 93 88, 90 82" fill="#FFFFFF" stroke="#C98B8B" stroke-width="1.2"/>
+    <line x1="100" y1="74" x2="100" y2="88" stroke="#C98B8B" stroke-width="0.7" opacity="0.6"/>
+    <line x1="90" y1="82" x2="110" y2="82" stroke="#C98B8B" stroke-width="0.7" opacity="0.6"/>
+
+    <!-- Twinkling 4-Point Star Sparkle -->
+    <g class="sparkle-twinkle" transform="translate(100, 72)">
+      <path d="M0 -10 L1.8 -3.5 L9 0 L1.8 3.5 L0 10 L-1.8 3.5 L-9 0 L-1.8 -3.5 Z" fill="#C98B8B"/>
+      <circle cx="0" cy="0" r="1.5" fill="#FAF4FA"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Satin Pillow Gradients -->
+    <radialGradient id="satinCenter" cx="50%" cy="58%" r="55%">
+      <stop offset="0%" stop-color="#FFF5F2" />
+      <stop offset="30%" stop-color="#FCEAE6" />
+      <stop offset="70%" stop-color="#F2CFCB" />
+      <stop offset="100%" stop-color="#E2B1AC" />
+    </radialGradient>
+
+    <!-- Satin Pleat Gradients -->
+    <linearGradient id="pleatSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#F2CFCB" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#C98B8B" stop-opacity="0.35" />
+    </linearGradient>
+
+    <!-- Deep Cavity Shadow -->
+    <radialGradient id="cavityShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#2D122A" stop-opacity="0" />
+      <stop offset="100%" stop-color="#190617" stop-opacity="0.75" />
+    </radialGradient>
+
+    <!-- Rose Gold Lip Inset -->
+    <linearGradient id="rgInnerLip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E4F57" />
+      <stop offset="50%" stop-color="#E3B4B0" />
+      <stop offset="100%" stop-color="#8E4F57" />
+    </linearGradient>
+  </defs>
+
+  <g id="lining-assembly">
+    <!-- Recessed Interior Bevel -->
+    <path d="M52 44 C52 38 62 34 78 34 L242 34 C258 34 268 38 268 44 L272 152 C272 162 260 168 242 168 L78 168 C60 168 48 162 48 152 Z" 
+          fill="#2A0E26" />
+
+    <!-- Rose Gold Inner Framing Rim -->
+    <path d="M54 44 C54 39 63 35 78 35 L242 35 C257 35 266 39 266 44 L270 152 C270 160 259 166 242 166 L78 166 C61 166 50 160 50 152 Z" 
+          stroke="url(#rgInnerLip)" stroke-width="1.2" fill="none" opacity="0.85" />
+
+    <!-- Plush Blush Satin Cushion -->
+    <path d="M58 46 C58 42 66 38 80 38 L240 38 C254 38 262 42 262 46 L266 148 C266 156 256 162 240 162 L80 162 C64 162 54 156 54 148 Z" 
+          fill="url(#satinCenter)" />
+
+    <!-- Soft Diagonal Satin Pleats (Pleated folds radiating from slit) -->
+    <!-- Top-left to Center Pleats -->
+    <path d="M64 48 Q100 80 140 106 Q110 120 70 138" stroke="url(#pleatSheen)" stroke-width="2.5" fill="none" opacity="0.4" />
+    <path d="M90 42 Q125 76 150 104 Q135 125 105 152" stroke="#FFFFFF" stroke-width="1.8" fill="none" opacity="0.35" />
+
+    <!-- Top-right to Center Pleats -->
+    <path d="M256 48 Q220 80 180 106 Q210 120 250 138" stroke="url(#pleatSheen)" stroke-width="2.5" fill="none" opacity="0.4" />
+    <path d="M230 42 Q195 76 170 104 Q185 125 215 152" stroke="#FFFFFF" stroke-width="1.8" fill="none" opacity="0.35" />
+
+    <!-- Deep Cavity Ambient Vignette -->
+    <path d="M58 46 C58 42 66 38 80 38 L240 38 C254 38 262 42 262 46 L266 148 C266 156 256 162 240 162 L80 162 C64 162 54 156 54 148 Z" 
+          fill="url(#cavityShadow)" />
+
+    <!-- Center Ring Slit (Velvet incision holding the ring upright) -->
+    <!-- Soft indentation shadow -->
+    <ellipse cx="160" cy="118" rx="42" ry="9" fill="#1C061A" opacity="0.7" />
+    
+    <!-- Velvet Slit Opening -->
+    <path d="M122 117 C138 123 182 123 198 117 C182 114 138 114 122 117 Z" fill="#120311" />
+    <path d="M124 116.5 C140 121 180 121 196 116.5" stroke="#E2B1AC" stroke-width="0.8" opacity="0.45" />
+
+    <!-- Soft Velvet Lips around slit -->
+    <ellipse cx="160" cy="119.5" rx="34" ry="3.5" fill="#C98B8B" opacity="0.25" />
+  </g>
+</svg>

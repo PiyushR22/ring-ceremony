@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60" fill="none">
+  <!-- Circular Postmark Reading "Ring Ceremony" and Date -->
+  <circle cx="30" cy="30" r="26" stroke="#C98B8B" stroke-width="1" opacity="0.75"/>
+  <circle cx="30" cy="30" r="23" stroke="#C98B8B" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.55"/>
+  <text x="30" y="24" font-family="'Jost', sans-serif" font-size="5" fill="#C98B8B" text-anchor="middle" letter-spacing="1.2">RING CEREMONY</text>
+  <text x="30" y="37" font-family="'Jost', sans-serif" font-size="5.5" fill="#1E2340" text-anchor="middle" letter-spacing="0.8">05.12.2026</text>
+  <!-- Cancellation Waves -->
+  <path d="M58 20 Q74 14 92 20 M58 30 Q74 24 92 30 M58 40 Q74 34 92 40" stroke="#C98B8B" stroke-width="0.9" opacity="0.55"/>
+</svg>

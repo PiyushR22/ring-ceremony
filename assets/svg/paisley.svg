@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 70" fill="none">
+  <!-- Delicate Indian Paisley / Kairi Outline -->
+  <path d="M30 60 C16 60 8 48 8 36 C8 20 22 14 28 8 C30 5 32 3 34 2 C32 8 34 14 39 18 C46 23 52 29 52 38 C52 50 42 60 30 60 Z" stroke="#C98B8B" stroke-width="1.2" fill="#CFC6E0" fill-opacity="0.15"/>
+  <path d="M30 48 C22 48 18 42 18 36 C18 28 25 24 28 20 C30 24 33 27 36 29 C40 32 42 34 42 38 C42 43 37 48 30 48 Z" stroke="#C98B8B" stroke-width="0.8" opacity="0.6"/>
+  <circle cx="30" cy="36" r="2.5" fill="#C98B8B"/>
+</svg>

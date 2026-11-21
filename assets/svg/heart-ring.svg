@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Minimal Heart with Ring Nestled Inside -->
+  <path d="M16 26 C8 19 3 14 3 8.5 C3 5 5.5 2.5 9 2.5 C11.5 2.5 14 3.8 16 6 C18 3.8 20.5 2.5 23 2.5 C26.5 2.5 29 5 29 8.5 C29 14 24 19 16 26 Z" stroke="#C98B8B" stroke-width="1.1" fill="#CFC6E0" fill-opacity="0.25"/>
+  <!-- The Little Ring Inside -->
+  <circle cx="16" cy="13" r="4" stroke="#C98B8B" stroke-width="1" fill="#F6F4F8"/>
+  <polygon points="16 7.5, 17.5 9, 16 10, 14.5 9" fill="#C98B8B"/>
+</svg>

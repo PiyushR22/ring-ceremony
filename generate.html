@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalized Link Studio • Shailja &amp; Vikas</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+
+  <style>
+    .studio-container {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .studio-card {
+      width: 100%;
+      max-width: 580px;
+      background: var(--ink);
+      border: 1px solid var(--hairline-foil);
+      border-radius: 6px;
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 3rem);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    .studio-monogram {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid var(--hairline-foil);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .studio-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .studio-desc {
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 2.2rem;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 1.8rem;
+    }
+
+    .input-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--foil-gold);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .studio-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: var(--noir);
+      border: 1px solid var(--hairline-foil);
+      border-radius: 4px;
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .studio-input:focus {
+      border-color: var(--foil-bright);
+      box-shadow: 0 0 12px rgba(233, 208, 143, 0.2);
+    }
+
+    .result-box {
+      background: var(--noir);
+      border: 1px dashed var(--hairline-foil);
+      border-radius: 4px;
+      padding: 1rem 1.2rem;
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: var(--foil-bright);
+      margin-bottom: 1.8rem;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .studio-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .back-link {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      margin-top: 1.8rem;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+      color: var(--ivory);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pre-rendered Tiled Film Grain Overlay -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <main class="studio-container">
+    <div class="studio-card">
+      <div class="studio-monogram">
+        <span class="foil-text">S &amp; V</span>
+      </div>
+
+      <h1 class="studio-title">Guest Link Studio</h1>
+      <p class="studio-desc">Generate personalized VIP invitation links with the guest or family name seamlessly integrated into the stationery.</p>
+
+      <div class="input-group">
+        <label for="guestInput" class="input-label">Enter Guest Name or Family Title</label>
+        <input type="text" id="guestInput" class="studio-input" placeholder="e.g. The Sharma Family, Uncle Rajesh &amp; Family" autocomplete="off">
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Personalized Shareable URL</span>
+        <div class="result-box" id="resultUrl">Type a name above to generate link...</div>
+      </div>
+
+      <div class="studio-actions">
+        <button type="button" class="btn-luxury btn-luxury-foil" id="btnCopyGenerated">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy Personalized Link
+        </button>
+        <a href="index.html" id="btnTestLink" target="_blank" class="btn-luxury btn-luxury-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          Open &amp; Test Invitation
+        </a>
+      </div>
+
+      <a href="index.html" class="back-link">&larr; Return to Main Invitation</a>
+    </div>
+  </main>
+
+  <div class="luxury-toast" id="luxuryToast">Link copied to clipboard!</div>
+
+  <script>
+    const guestInput = document.getElementById('guestInput');
+    const resultUrl = document.getElementById('resultUrl');
+    const btnCopy = document.getElementById('btnCopyGenerated');
+    const btnTest = document.getElementById('btnTestLink');
+    const toast = document.getElementById('luxuryToast');
+
+    let currentGuestId = '';
+    let lastTypedName = '';
+
+    function slugify(text) {
+      return text.toString().toLowerCase().trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .substring(0, 30);
+    }
+
+    function generateUniqueId(name) {
+      const slug = slugify(name) || 'guest';
+      const rand = Math.random().toString(36).substring(2, 6);
+      return `${slug}-${rand}`;
+    }
+
+    function getBaseUrl() {
+      const loc = window.location;
+      const path = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+      return `${loc.protocol}//${loc.host}${path}index.html`;
+    }
+
+    function updateLink() {
+      const name = guestInput.value.trim();
+      const base = getBaseUrl();
+      if (!name) {
+        resultUrl.textContent = base;
+        btnTest.href = base;
+        currentGuestId = '';
+        lastTypedName = '';
+        return;
+      }
+
+      if (!currentGuestId || name !== lastTypedName) {
+        currentGuestId = generateUniqueId(name);
+        lastTypedName = name;
+      }
+
+      const full = `${base}?to=${encodeURIComponent(name)}&id=${encodeURIComponent(currentGuestId)}`;
+      resultUrl.textContent = full;
+      btnTest.href = full;
+    }
+
+    guestInput.addEventListener('input', updateLink);
+    updateLink();
+
+    btnCopy.addEventListener('click', async () => {
+      const textToCopy = resultUrl.textContent;
+      try {
+        await navigator.clipboard.writeText(textToCopy);
+        toast.classList.add('is-visible');
+        setTimeout(() => toast.classList.remove('is-visible'), 3000);
+      } catch (err) {
+        alert("Copy link manually: " + textToCopy);
+      }
+    });
+  </script>
+</body>
+</html>

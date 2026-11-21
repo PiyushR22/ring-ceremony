@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Lotus & Rose Floral Spray -->
+  <path d="M12 12 Q40 22 65 65 T90 90" stroke="#C98B8B" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Lotus Petals -->
+  <path d="M25 22 Q14 34 26 40 Q38 30 25 22 Z" fill="#CFC6E0" fill-opacity="0.35" stroke="#C98B8B" stroke-width="1"/>
+  <path d="M44 38 Q56 30 60 42 Q46 50 44 38 Z" fill="#CFC6E0" fill-opacity="0.35" stroke="#C98B8B" stroke-width="1"/>
+  <!-- Delicate Buds -->
+  <circle cx="18" cy="18" r="2.5" fill="#C98B8B"/>
+  <circle cx="54" cy="34" r="2.5" fill="#CFC6E0"/>
+  <circle cx="72" cy="56" r="2" fill="#C98B8B"/>
+</svg>

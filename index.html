@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Ring Ceremony • Shailja &amp; Vikas</title>
+
+  <!-- Open Graph & Social Preview -->
+  <meta property="og:title" content="💍 Ring Ceremony • Shailja &amp; Vikas">
+  <meta property="og:description"
+    content="Rajak Family cordially invites you to the Ring Ceremony of Shailja &amp; Vikas on Saturday, 5th December 2026 at Hotel Samdareeya Inn, Jabalpur.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0C0A0B">
+
+  <!-- Google Fonts: Bodoni Moda, Playfair Display, Jost, Pinyon Script & Noto Serif Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Jost:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@300;400;500;600&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Modular Stylesheets -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/chapters.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Pre-rendered Tiled Film Grain Overlay (Zero live CPU feTurbulence) -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- Top Floating Controls: Language Toggle & Sound Toggle -->
+  <header class="floating-top-bar" aria-label="Page controls">
+    <button type="button" class="control-pill" id="langToggle" aria-label="Toggle language">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+      </svg>
+      <span id="langToggleLabel">EN / हिंदी</span>
+    </button>
+    <button type="button" class="control-pill" id="audioToggle" aria-label="Toggle ambient chimes">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+      <span id="audioToggleLabel">Sound: On</span>
+    </button>
+  </header>
+
+  <!-- ==========================================================================
+       CINEMATIC ENTRY PORTAL (Replaces Envelope / Box)
+       1. Interlocking rings draw in
+       2. Monogram in gold foil fades in
+       3. "Press to enter" pulses
+       4. On tap: rings glide apart, flare bursts, dissolves into Chapter 1
+       ========================================================================== -->
+  <div class="intro-portal" id="introPortal" role="dialog" aria-modal="true" aria-label="Ceremonial Portal">
+    <!-- Center Warm Flare (expands on open) -->
+    <div class="intro-flare" aria-hidden="true"></div>
+
+    <button type="button" class="intro-chamber" id="introTrigger"
+      aria-label="Press to enter the Ring Ceremony invitation">
+      <!-- Dual Interlocking Rings SVG -->
+      <svg class="intro-rings-svg" viewBox="0 0 160 90" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="introGoldFoil" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8C6A2E" />
+            <stop offset="30%" stop-color="#E9D08F" />
+            <stop offset="55%" stop-color="#B8923F" />
+            <stop offset="75%" stop-color="#F3E2AE" />
+            <stop offset="100%" stop-color="#9A7632" />
+          </linearGradient>
+        </defs>
+
+        <!-- Left Ring Assembly (Circle + Initial S in center) -->
+        <g class="intro-ring-assembly intro-ring-assembly-1">
+          <circle class="intro-ring intro-ring-1" cx="58" cy="45" r="33" stroke="url(#introGoldFoil)"
+            stroke-width="1.8" />
+          <text class="intro-initial intro-initial-s" x="55" y="46.5" text-anchor="middle"
+            dominant-baseline="central" fill="url(#introGoldFoil)">S</text>
+        </g>
+
+        <!-- Middle Ampersand in Center Intersection of Rings -->
+        <text class="intro-initial intro-ampersand" x="80" y="45.5" text-anchor="middle"
+          dominant-baseline="central" fill="url(#introGoldFoil)">&amp;</text>
+
+        <!-- Right Ring Assembly (Circle + Diamond Gem + Initial V in center) -->
+        <g class="intro-ring-assembly intro-ring-assembly-2">
+          <circle class="intro-ring intro-ring-2" cx="102" cy="45" r="33" stroke="url(#introGoldFoil)"
+            stroke-width="1.8" />
+          <polygon class="intro-gem" points="102,8 107,12 105,16 99,16 97,12" fill="#FAF6EF"
+            stroke="url(#introGoldFoil)" stroke-width="0.8" />
+          <text class="intro-initial intro-initial-v" x="105" y="46.5" text-anchor="middle"
+            dominant-baseline="central" fill="url(#introGoldFoil)">V</text>
+        </g>
+      </svg>
+
+      <!-- Pulse Prompt -->
+      <div class="intro-prompt">
+        <span data-i18n="pressToEnter">Press to enter</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       CHAPTERS FLOW: 9 FULL-SCREEN LUXURY EDITORIAL CHAPTERS
+       ========================================================================== -->
+  <main class="chapters-flow" id="chaptersFlow">
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 1: COVER (Dark Noir)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-cover" id="chapter-cover" aria-label="Cover">
+      <div class="cover-light-bloom" aria-hidden="true"></div>
+
+      <div class="cover-content">
+        <!-- Giant Monogram -->
+        <div class="cover-monogram-circle reveal-item delay-1">
+          <span class="cover-monogram-text foil-text">S &amp; V</span>
+        </div>
+
+        <!-- Spaced Tagline -->
+        <p class="cover-tagline reveal-item delay-2" data-i18n="coverTagline">THE RING CEREMONY OF</p>
+
+        <!-- Huge Bodoni Stacked Names -->
+        <div class="cover-names-stack reveal-item delay-3">
+          <span class="cover-name" id="coverBride">Shailja</span>
+          <span class="cover-ampersand">&amp;</span>
+          <span class="cover-name" id="coverGroom">Vikas</span>
+        </div>
+
+        <!-- Hairline & Date -->
+        <div class="cover-date-bar reveal-item delay-4">
+          <span class="cover-date-text">05 • 12 • 2026</span>
+        </div>
+      </div>
+
+      <!-- Subtle Scroll Indicator -->
+      <a href="#chapter-invitation" class="cover-scroll-indicator reveal-item delay-5"
+        aria-label="Scroll to invitation message">
+        <div class="scroll-ring-drop" aria-hidden="true"></div>
+        <span class="scroll-hint-label" data-i18n="scrollHint">Scroll to explore</span>
+      </a>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 2: THE INVITATION (Ivory Paper Grain)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-invitation" id="chapter-invitation" aria-label="The Invitation">
+      <article class="invitation-column">
+        <!-- Personalized Salutation (?to=Guest+Name) -->
+        <div class="guest-personalized-salutation reveal-item delay-1" id="guestSalutation">Dear Guest,</div>
+
+        <p class="invitation-lead reveal-item delay-2" data-i18n="invitationLead">Together with their families</p>
+        <h2 class="invitation-couple-headline reveal-item delay-3" id="invitationCoupleHeadline">Shailja &amp; Vikas
+        </h2>
+
+        <p class="invitation-prose reveal-item delay-4" data-i18n="invitationProse">
+          Request the honour of your presence as they exchange rings and make a solemn vow of eternal love and
+          togetherness.
+        </p>
+
+        <!-- Fine Foil Flourish Divider -->
+        <div class="invitation-flourish-divider reveal-item delay-4" aria-hidden="true">
+          <svg viewBox="0 0 160 30" fill="none">
+            <line x1="10" y1="15" x2="65" y2="15" stroke="#B8923F" stroke-width="0.9" opacity="0.5" />
+            <circle cx="75" cy="15" r="5" stroke="#B8923F" stroke-width="0.9" />
+            <circle cx="85" cy="15" r="5" stroke="#B8923F" stroke-width="0.9" />
+            <circle cx="80" cy="15" r="1.5" fill="#E9D08F" />
+            <line x1="95" y1="15" x2="150" y2="15" stroke="#B8923F" stroke-width="0.9" opacity="0.5" />
+          </svg>
+        </div>
+
+        <p class="invitation-blessings reveal-item delay-5" data-i18n="invitationBlessings">
+          With the eternal blessings of our revered elders
+        </p>
+      </article>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 3: THE DATE (Dark Noir)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-date" id="chapter-date" aria-label="Event Date & Countdown">
+      <!-- Huge Bodoni Day Number & Side Metadata -->
+      <div class="date-hero-layout reveal-item delay-1">
+        <div class="date-huge-num foil-text">05</div>
+        <div class="date-side-meta">
+          <div class="date-meta-month-year">DECEMBER 2026</div>
+          <div class="date-meta-hairline"></div>
+          <div class="date-meta-weekday">SATURDAY</div>
+        </div>
+      </div>
+
+      <!-- Live Countdown in 4 Columns -->
+      <div class="countdown-quad-columns reveal-item delay-3" aria-label="Countdown to Ring Ceremony">
+        <div class="countdown-col">
+          <span class="countdown-val-num" id="countDays">00</span>
+          <span class="countdown-unit-tag" data-i18n="countdownDays">DAYS</span>
+        </div>
+        <div class="countdown-col">
+          <span class="countdown-val-num" id="countHours">00</span>
+          <span class="countdown-unit-tag" data-i18n="countdownHours">HOURS</span>
+        </div>
+        <div class="countdown-col">
+          <span class="countdown-val-num" id="countMins">00</span>
+          <span class="countdown-unit-tag" data-i18n="countdownMins">MINS</span>
+        </div>
+        <div class="countdown-col">
+          <span class="countdown-val-num" id="countSecs">00</span>
+          <span class="countdown-unit-tag" data-i18n="countdownSecs">SECS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 4: THE CELEBRATION (Split Layout: Mehrab Arch & Typographic List)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-celebration" id="chapter-celebration" aria-label="Celebration Details">
+      <div class="celebration-split-grid">
+
+        <!-- Left: Mehrab Arch Sanctuary with Solitaire Ring -->
+        <div class="celebration-arch-col reveal-item delay-1">
+          <div class="mehrab-arch-sanctuary">
+            <!-- Solitaire Diamond Ring Vector Hero -->
+            <div class="solitaire-vector-hero" aria-hidden="true">
+              <svg viewBox="0 0 100 100" fill="none">
+                <circle cx="50" cy="65" r="26" stroke="#B8923F" stroke-width="2.2" />
+                <circle cx="50" cy="65" r="24.8" stroke="#FFF" stroke-width="0.6" opacity="0.4" />
+                <!-- 4-Prong Setting -->
+                <path d="M42 38 Q50 42 58 38" stroke="#B8923F" stroke-width="2" fill="none" />
+                <!-- Brilliant Diamond Gem -->
+                <polygon points="50,22 36,36 43,40 57,40 64,36" fill="#F4EDE2" stroke="#B8923F" stroke-width="0.8" />
+                <polygon points="50,22 43,40 57,40" fill="#FFFFFF" stroke="#B8923F" stroke-width="0.5" />
+                <!-- Twinkling 4-point sparkle -->
+                <g class="sparkle-4pt" transform="translate(56, 16)">
+                  <path d="M0 -12 Q0 0 12 0 Q0 0 0 12 Q0 0 -12 0 Q0 0 0 -12 Z" fill="#F3E2AE" />
+                  <circle cx="0" cy="0" r="1.8" fill="#FFFFFF" />
+                </g>
+              </svg>
+            </div>
+
+            <!-- Couple Script Ribbon inside Arch -->
+            <div class="arch-center-script" id="archCoupleScript">Shailja &amp; Vikas</div>
+
+            <div class="arch-tagline-caps" data-i18n="celebrationArchTag">CELESTIAL VOW</div>
+          </div>
+        </div>
+
+        <!-- Right: Refined Typographic List -->
+        <div class="celebration-details-col reveal-item delay-2">
+          <div class="details-typographic-list">
+
+            <!-- Time -->
+            <div class="detail-entry">
+              <span class="detail-label-spaced" data-i18n="celebrationTimeLabel">TIME</span>
+              <div class="detail-headline-val">01:00 PM to 05:00 PM</div>
+              <div class="detail-subnote-text">Auspicious Ring Exchange followed by Royal Feast</div>
+            </div>
+
+            <hr class="hairline-rule" style="background: rgba(12, 10, 11, 0.12); margin: 0;">
+
+            <!-- Venue -->
+            <div class="detail-entry">
+              <span class="detail-label-spaced" data-i18n="celebrationVenueLabel">VENUE</span>
+              <div class="detail-headline-val">Hotel Samdareeya Inn</div>
+              <div class="detail-subnote-text">Russel Chowk, Napier Town, Jabalpur, Madhya Pradesh 482001 (near Dr.
+                Barat Road)</div>
+            </div>
+
+            <hr class="hairline-rule" style="background: rgba(12, 10, 11, 0.12); margin: 0;">
+
+            <!-- Occasion Note -->
+            <div class="detail-entry">
+              <span class="detail-label-spaced" data-i18n="celebrationOccasionLabel">CEREMONY</span>
+              <div class="detail-headline-val" data-i18n="celebrationOccasionVal">Auspicious Ring Exchange &amp; Feast
+              </div>
+              <div class="detail-subnote-text">Auspicious Muhurat &amp; Blessings at 02:00 PM</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 5: PROGRAMME (Dark Noir Timeline)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-programme" id="chapter-programme" aria-label="Programme Schedule">
+      <div class="programme-container">
+        <p class="section-eyebrow reveal-item delay-1" data-i18n="programmeTitle">Programme</p>
+        <h2 class="section-serif-title reveal-item delay-2">The Order of Events</h2>
+
+        <!-- Vertical Timeline Track -->
+        <div class="timeline-vertical-flow" id="programmeTimelineList">
+          <!-- Dynamically populated from CONFIG.timeline via js/i18n.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 6: THE VENUE (Ivory)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-venue" id="chapter-venue" aria-label="Venue & Location">
+      <div class="venue-content-wrapper">
+        <p class="section-eyebrow reveal-item delay-1" data-i18n="venueTitle" style="color: #8C6A2E;">The Venue</p>
+        <h2 class="venue-headline reveal-item delay-2">Hotel Samdareeya Inn</h2>
+        <p class="venue-address-line reveal-item delay-3">Russel Chowk, Napier Town, Jabalpur, Madhya Pradesh 482001
+          (near Dr. Barat Road / Maharshi Dayanand Saraswati Chowk)</p>
+
+        <!-- Primary Navigation Action (Placed above map to prevent touch-scroll capture on phones) -->
+        <div class="venue-actions-row reveal-item delay-4">
+          <a href="https://www.google.com/search?kgmid=%2Fg%2F11gbw8x8ry" target="_blank" rel="noopener noreferrer"
+            class="btn-luxury btn-luxury-dark action-btn-maps">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span data-i18n="getDirectionsBtn">Get Directions</span>
+          </a>
+        </div>
+
+        <!-- Styled Grayscale Map Frame (Lazy Loaded) -->
+        <div class="venue-map-card reveal-item delay-5">
+          <iframe class="venue-map-iframe"
+            src="https://maps.google.com/maps?q=Hotel+Samdareeya+Inn+Russel+Chowk+Jabalpur&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy" title="Hotel Samdareeya Inn Map Location" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 7: ACCEPT INVITATION (Bordeaux Gradient)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-rsvp" id="chapter-rsvp" aria-label="Accept Invitation">
+      <div class="acceptance-card-container">
+        <!-- Eyebrow & Serif Title -->
+        <h2 class="acceptance-heading reveal-item delay-1" id="acceptanceHeading">Will you celebrate with us?</h2>
+        <p class="acceptance-replyby reveal-item delay-2" id="acceptanceReplyBy">Kindly let us know by 25th November 2026</p>
+
+        <!-- Initial Form State (Accept / Decline / Stepper) -->
+        <div class="acceptance-form-state reveal-item delay-3" id="acceptanceFormState">
+          <!-- Optional Guest Count Stepper (Controlled via config.acceptance.askGuestCount) -->
+          <div class="guest-stepper-group" id="guestStepperGroup" style="display: none;">
+            <label class="stepper-label" id="guestStepperLabel">Number of guests (including you)</label>
+            <div class="stepper-control">
+              <button type="button" class="stepper-btn" id="stepperMinus" aria-label="Decrease guest count">&minus;</button>
+              <span class="stepper-count-val" id="stepperVal" aria-live="polite">1</span>
+              <button type="button" class="stepper-btn" id="stepperPlus" aria-label="Increase guest count">&plus;</button>
+            </div>
+          </div>
+
+          <!-- Error Alert Banner -->
+          <div class="acceptance-error-banner" id="acceptanceError" role="alert" style="display: none;"></div>
+
+          <!-- Primary Accept Button -->
+          <button type="button" class="btn-luxury btn-luxury-foil btn-acceptance-main" id="btnAcceptInvite">
+            <span class="btn-ring-spinner" aria-hidden="true"></span>
+            <span class="btn-label" id="btnAcceptLabel">Accept Invitation</span>
+          </button>
+
+          <!-- Secondary Quiet Text Decline Button -->
+          <button type="button" class="btn-quiet-decline" id="btnDeclineInvite">
+            Regretfully, I can't attend
+          </button>
+        </div>
+
+        <!-- Confirmed Accepted State -->
+        <div class="acceptance-confirmed-state" id="acceptanceConfirmedState" style="display: none;">
+          <!-- Interlocking Rings Draw-In SVG Hero & Sparkle Burst -->
+          <div class="confirm-rings-hero" aria-hidden="true">
+            <svg class="confirm-rings-svg" viewBox="0 0 160 90" fill="none">
+              <circle class="c-ring c-ring-1" cx="60" cy="45" r="30" stroke="#E9D08F" stroke-width="2" />
+              <circle class="c-ring c-ring-2" cx="100" cy="45" r="30" stroke="#E9D08F" stroke-width="2" />
+              <polygon points="100,10 105,14 103,18 97,18 95,14" fill="#FAF6EF" stroke="#B8923F" stroke-width="1" />
+            </svg>
+            <div class="confirm-sparkle-burst"></div>
+          </div>
+
+          <!-- Confirmed Message Box (Accessible aria-live & focus target) -->
+          <div class="confirm-message-box" id="confirmMessageBox" tabindex="-1" aria-live="polite">
+            <h3 class="confirm-headline" id="confirmHeadline">Thank you. Your presence is confirmed.</h3>
+            <p class="confirm-cant-wait" id="confirmCantWait">We can't wait to celebrate with you.</p>
+          </div>
+
+          <!-- Action Buttons Stack (Calendar & Share) -->
+          <div class="confirmed-actions-stack">
+            <button type="button" class="btn-luxury btn-luxury-outline" id="btnAddToCalendar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span data-i18n="calendarBtn">Add to Calendar</span>
+            </button>
+
+            <button type="button" class="btn-luxury btn-luxury-outline" id="btnShareInvite">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span data-i18n="shareBtn">Share Invitation</span>
+            </button>
+          </div>
+
+          <!-- Change Response Option -->
+          <button type="button" class="btn-change-response" id="btnChangeAccepted">
+            Need to update? Change response
+          </button>
+        </div>
+
+        <!-- Declined State -->
+        <div class="acceptance-declined-state" id="acceptanceDeclinedState" style="display: none;">
+          <div class="decline-message-box" id="declineMessageBox" tabindex="-1" aria-live="polite">
+            <p class="decline-headline" id="declineHeadline">We will miss you. Thank you for letting us know.</p>
+            <button type="button" class="btn-change-mind-accept" id="btnChangeMindAccept">
+              Changed your mind? Accept invitation
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         CHAPTER 8: CLOSING (Dark Noir)
+         ---------------------------------------------------------------------- -->
+    <section class="chapter-section ch-closing" id="chapter-closing" aria-label="Closing Remarks">
+      <div class="closing-content-block">
+        <p class="closing-script-quote reveal-item delay-1" data-i18n="closingQuote">
+          We can't wait to celebrate with you
+        </p>
+
+        <!-- Monogram Emblem -->
+        <div class="closing-monogram-emblem reveal-item delay-2">
+          <span class="foil-text">S &amp; V</span>
+        </div>
+
+        <p class="closing-love-label reveal-item delay-3" data-i18n="closingLove">With love &amp; warm regards,</p>
+        <div class="closing-family-host reveal-item delay-4">Rajak Family</div>
+
+        <!-- Heart and Ring Icon -->
+        <div class="closing-heart-ring-icon reveal-item delay-5" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8" stroke="#B8923F" stroke-width="1.2" />
+            <path d="M12 8 C10 6 7 7.5 7 9.5 C7 12 12 15 12 15 C12 15 17 12 17 9.5 C17 7.5 14 6 12 8 Z"
+              fill="#E9D08F" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Ambient Floating Gold Sparkles Canvas (Capped at 6 mobile / 15 desktop; disabled with prefers-reduced-motion) -->
+  <canvas id="ambientSparklesCanvas" class="ambient-sparkles-canvas" aria-hidden="true"></canvas>
+
+  <!-- Luxury Toast Notification -->
+  <div class="luxury-toast" id="luxuryToast">Invitation link copied!</div>
+
+  <!-- Vanilla Scripts (No ES Modules, No Build Steps) -->
+  <script src="js/config.js"></script>
+  <script src="js/response-service.js"></script>
+  <script src="js/acceptance.js"></script>
+  <script src="js/actions.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/intro.js"></script>
+</body>
+
+</html>

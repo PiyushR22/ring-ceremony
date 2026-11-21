@@ -1,0 +1,644 @@
+/* ==========================================================================
+   css/card.css - Two-Panel Arch Split View (Desktop) & Tall Card (Mobile)
+   Layout: Left Arch Panel (40%), Right Ivory Reader (60%), Details Grid,
+           Timeline, Animated Progress Rings, WhatsApp Plum Filled Button
+   ========================================================================== */
+
+.invitation-scaffold {
+  width: 100%;
+  max-width: 980px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity 0.65s var(--ease-editorial), transform 0.65s var(--ease-editorial), visibility 0.65s;
+  display: flex;
+}
+
+.invitation-scaffold.is-revealed {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Master Art Card Container */
+.invitation-art-sheet {
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(30, 35, 64, 0.1), 0 6px 20px rgba(30, 35, 64, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Single Hairline Inset Border (8px inside edge) with Ring-Shaped Corner Dots */
+.card-hairline-inset {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(201, 139, 139, 0.35);
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+.corner-ring-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--rose-gold);
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+.c-tl { top: -4px; left: -4px; }
+.c-tr { top: -4px; right: -4px; }
+.c-bl { bottom: -4px; left: -4px; }
+.c-br { bottom: -4px; right: -4px; }
+
+/* Subtle Background Blobs (Behind Arch and Bottom-Right Only) */
+.wash-arch-blob {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(207, 198, 224, 0.45) 0%, transparent 70%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 0;
+}
+.wash-bottom-blob {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 139, 139, 0.3) 0%, transparent 70%);
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================================================================
+   LEFT PANEL: TALL ARCH WINDOW (40% Desktop / Top 45vh Mobile)
+   ========================================================================== */
+.card-arch-panel {
+  width: 100%;
+  background: linear-gradient(180deg, #FBF9FD 0%, #F1ECF7 60%, #E3DAED 100%);
+  padding: 2.4rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  border-bottom: 1px solid rgba(201, 139, 139, 0.25);
+}
+
+/* Arch Shape (Mehrab Window: border-radius: 999px 999px 0 0) */
+.arch-window-sanctuary {
+  width: 100%;
+  max-width: 280px;
+  height: 380px;
+  border: 1px solid var(--rose-gold);
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65) 0%, rgba(207, 198, 224, 0.4) 100%);
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.8), 0 8px 24px rgba(30, 35, 64, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 1.5rem 2rem;
+  position: relative;
+}
+
+.arch-solitaire-hero {
+  width: 85px;
+  height: 85px;
+}
+.arch-solitaire-hero img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Center Aesthetic Ribbon Inside Arch Window */
+.arch-center-crest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0.8rem 0;
+}
+.arch-couple-ribbon {
+  font-family: var(--font-script);
+  font-size: 1.85rem;
+  color: var(--plum);
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+.arch-date-ribbon {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  font-weight: 500;
+}
+
+.arch-monogram-block {
+  text-align: center;
+}
+.arch-monogram-circle {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--rose-gold);
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(30, 35, 64, 0.05);
+}
+.arch-monogram-circle text, .arch-monogram-circle span {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--plum);
+  letter-spacing: 1px;
+}
+.arch-ceremony-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   RIGHT PANEL: IVORY CONTENT READER (60% Desktop / Single Column Mobile)
+   ========================================================================== */
+.card-content-panel {
+  width: 100%;
+  padding: clamp(2rem, 5vw, 3.4rem) clamp(1.4rem, 5vw, 3rem);
+  background: #FFFFFF;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* A. Small Spaced Uppercase Line */
+.card-lead-in {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--plum-muted);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+/* B. Couple Names in Large Script with Rose Gold & on its Own Line */
+.couple-script-block {
+  margin: 0.2rem 0 0.8rem;
+}
+.script-name {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 8vw, 3.8rem);
+  line-height: 1.05;
+  color: var(--plum);
+  display: block;
+}
+.script-ampersand-row {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--rose-gold);
+  margin: 0.2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.script-ampersand-row::before, .script-ampersand-row::after {
+  content: "";
+  width: 35px;
+  height: 1px;
+  background: var(--rose-gold-fade);
+}
+
+/* C. Elegant Invitation Line */
+.invitation-line {
+  font-size: clamp(1.1rem, 3.2vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--plum-muted);
+  font-style: italic;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.invitation-line-hi {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 1.02rem;
+  font-style: normal;
+  color: var(--plum-muted);
+  margin-top: 0.4rem;
+  line-height: 1.6;
+}
+
+/* D. Interlocking Rings Divider (Animated Stroke Draw-in) */
+.rings-divider-wrap {
+  width: 85px;
+  height: 48px;
+  margin: 1.4rem auto;
+}
+.rings-divider-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+.drawn-ring {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  transition: stroke-dashoffset 1.4s var(--ease-editorial);
+}
+.invitation-scaffold.is-revealed .drawn-ring {
+  stroke-dashoffset: 0;
+}
+.diamond-gem {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.6s var(--ease-spring) 1s;
+  transform-origin: center;
+}
+.invitation-scaffold.is-revealed .diamond-gem {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* E. Date Block: Large Day Number with Vertical Rose Gold Line */
+.date-hero-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 1.4rem auto 1.8rem;
+  padding: 0.8rem 1.6rem;
+  border-top: 1px solid rgba(201, 139, 139, 0.2);
+  border-bottom: 1px solid rgba(201, 139, 139, 0.2);
+  max-width: 360px;
+}
+.date-day-num {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 9vw, 4.2rem);
+  font-weight: 300;
+  color: var(--plum);
+  line-height: 1;
+}
+.date-vertical-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--rose-gold);
+}
+.date-meta-text {
+  text-align: left;
+}
+.date-month-year {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--plum);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.date-weekday {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  margin-top: 2px;
+}
+
+/* F. Three-Column Details Row (Time, Venue, Ceremony Note) */
+.details-tri-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 1.6rem 0;
+  text-align: center;
+}
+.detail-col {
+  padding: 0.8rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.detail-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-gold-fade);
+  background: rgba(246, 244, 248, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.detail-icon-wrap img {
+  width: 16px;
+  height: 16px;
+}
+.detail-col-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.detail-col-val {
+  font-size: 1.05rem;
+  color: var(--plum);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.detail-col-sub {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+  max-width: 220px;
+}
+
+/* Mobile Hairline Between Details */
+@media (max-width: 899px) {
+  .details-tri-row .detail-col:not(:last-child) {
+    border-bottom: 1px solid rgba(201, 139, 139, 0.18);
+    padding-bottom: 1.1rem;
+  }
+}
+
+/* G. Short Programme Timeline */
+.timeline-section {
+  margin: 1.8rem auto;
+  max-width: 380px;
+  text-align: left;
+}
+.timeline-caption {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+.timeline-list {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline-list::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 7px;
+  width: 1px;
+  background: var(--rose-gold-fade);
+}
+.timeline-entry {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.timeline-dot-wrap {
+  position: absolute;
+  left: -2rem;
+  top: 1px;
+}
+.timeline-dot-img {
+  width: 15px;
+  height: 15px;
+}
+.timeline-content {
+  display: flex;
+  flex-direction: column;
+}
+.timeline-time {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--rose-gold);
+  letter-spacing: 1px;
+}
+.timeline-title {
+  font-size: 0.98rem;
+  color: var(--plum);
+  font-weight: 500;
+}
+
+/* H. Countdown Architecture: Four Circles with Animated Progress Rings */
+.countdown-section {
+  margin: 2rem auto 1.8rem;
+  text-align: center;
+}
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.7rem, 2.5vw, 1.2rem);
+}
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.countdown-circle-svg-wrap {
+  position: relative;
+  width: clamp(62px, 15vw, 76px);
+  height: clamp(62px, 15vw, 76px);
+}
+.countdown-circle-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+.progress-ring-bg {
+  stroke: rgba(201, 139, 139, 0.2);
+  stroke-width: 2;
+  fill: rgba(246, 244, 248, 0.5);
+}
+.progress-ring-fill {
+  stroke: var(--rose-gold);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 219.9;
+  stroke-dashoffset: 219.9;
+  transition: stroke-dashoffset 0.8s ease;
+}
+.countdown-center-val {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 4.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--plum);
+}
+.countdown-tag {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+/* I. Buttons: One Row (WhatsApp filled plum, other two outlined) */
+.action-buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem auto 1.4rem;
+  max-width: 540px;
+}
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0.85rem 1.4rem;
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s var(--ease-editorial);
+  font-weight: 500;
+  flex: 1 1 160px;
+  max-width: 220px;
+}
+.btn-pill img {
+  width: 14px;
+  height: 14px;
+}
+.btn-outlined {
+  border: 1px solid var(--rose-gold);
+  background: transparent;
+  color: var(--plum);
+}
+.btn-outlined:hover, .btn-outlined:focus-visible {
+  background: var(--blush);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(30, 35, 64, 0.08);
+}
+/* WhatsApp Filled Plum with Ivory Text */
+.btn-filled-plum {
+  background: var(--plum);
+  border: 1px solid var(--plum);
+  color: #FAF6EF;
+}
+.btn-filled-plum:hover, .btn-filled-plum:focus-visible {
+  background: #2E355E;
+  border-color: #2E355E;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 35, 64, 0.16);
+}
+
+/* J. Closing Line in Script */
+.closing-script-line {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: var(--plum);
+  margin: 1.8rem 0 0.8rem;
+  line-height: 1.2;
+}
+
+/* K. Footer: "With love, Rajak Family" with Heart & Ring Separator */
+.card-terminal-footer {
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(201, 139, 139, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.footer-heart-ring {
+  width: 20px;
+  height: 20px;
+}
+.footer-host-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--rose-gold);
+}
+.footer-host-name {
+  font-size: 1.25rem;
+  color: var(--plum);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   DESKTOP / TABLET SPLIT-PANEL LAYOUT (min-width: 900px)
+   Two-panel side by side: Left 40% Arch Panel, Right 60% Reader
+   ========================================================================== */
+@media (min-width: 900px) {
+  .invitation-art-sheet {
+    flex-direction: row;
+    height: auto;
+    min-height: 640px;
+    align-items: stretch;
+  }
+
+  /* Left Arch Sanctuary (38%) */
+  .card-arch-panel {
+    width: 38%;
+    border-bottom: none;
+    border-right: 1px solid rgba(201, 139, 139, 0.22);
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+  }
+  .arch-window-sanctuary {
+    height: 500px;
+    max-height: 540px;
+  }
+
+  /* Right Ivory Content Reader (62%) */
+  .card-content-panel {
+    width: 62%;
+    overflow: visible;
+    padding: 3.5rem 3rem 4rem;
+  }
+
+  /* Three Column Row becomes truly 3 columns on desktop */
+  .details-tri-row {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .detail-col:not(:last-child) {
+    border-right: 1px solid rgba(201, 139, 139, 0.18);
+  }
+}

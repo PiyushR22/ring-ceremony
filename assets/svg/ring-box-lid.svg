@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Velvet Plum Gradients for Domed Lid -->
+    <radialGradient id="lidVelvetDome" cx="45%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#6B3A63" />
+      <stop offset="35%" stop-color="#4A2545" />
+      <stop offset="75%" stop-color="#351530" />
+      <stop offset="100%" stop-color="#200A1D" />
+    </radialGradient>
+
+    <!-- Moving Velvet Sheen Gradient -->
+    <linearGradient id="lidSheenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0" />
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.04" />
+      <stop offset="50%" stop-color="#F2CFCB" stop-opacity="0.22" />
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Metallic Rose Gold Rim Gradients -->
+    <linearGradient id="rgRimLinear" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E4F57" />
+      <stop offset="15%" stop-color="#B76E79" />
+      <stop offset="30%" stop-color="#E3B4B0" />
+      <stop offset="48%" stop-color="#FFF2F0" />
+      <stop offset="65%" stop-color="#E3B4B0" />
+      <stop offset="85%" stop-color="#B76E79" />
+      <stop offset="100%" stop-color="#7A3F47" />
+    </linearGradient>
+
+    <!-- Brushed Rose Gold Plaque Gradient -->
+    <linearGradient id="rgPlaqueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D0CC" />
+      <stop offset="35%" stop-color="#E3B4B0" />
+      <stop offset="70%" stop-color="#B76E79" />
+      <stop offset="100%" stop-color="#99525C" />
+    </linearGradient>
+
+    <!-- Pearl Clasp Gradients -->
+    <radialGradient id="pearlShine" cx="35%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FFF7F5" />
+      <stop offset="75%" stop-color="#F5D9D4" />
+      <stop offset="100%" stop-color="#D9A8A2" />
+    </radialGradient>
+
+    <!-- Velvet Micro-Noise Texture -->
+    <filter id="lidVelvetNoise" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.08 0" />
+      <feBlend mode="overlay" in="SourceGraphic" result="blend" />
+    </filter>
+  </defs>
+
+  <g id="lid-assembly" filter="url(#lidVelvetNoise)">
+    <!-- 1. Domed Velvet Lid Shell -->
+    <g id="lid-shell">
+      <!-- Main Domed Lid Polygon/Curve -->
+      <path d="M44 32 C44 22 56 16 74 16 L246 16 C264 16 276 22 276 32 L282 144 C282 154 270 162 248 162 L72 162 C50 162 38 154 38 144 Z" 
+            fill="url(#lidVelvetDome)" />
+
+      <!-- Top-Left Highlight Wash -->
+      <path d="M46 32 C46 23 58 18 76 18 L244 18 C262 18 274 23 274 32 L278 80 L42 80 Z" 
+            fill="#6B3A63" opacity="0.35" />
+
+      <!-- Idle Moving Sheen Sweep across Velvet -->
+      <rect x="36" y="16" width="248" height="148" rx="20" fill="url(#lidSheenGradient)" class="lid-velvet-sheen" opacity="0.75" />
+    </g>
+
+    <!-- 2. Metallic Rose Gold Perimeter Rim (#rim) -->
+    <g id="rim">
+      <!-- Outer Rim Stroke -->
+      <path d="M44 32 C44 22 56 16 74 16 L246 16 C264 16 276 22 276 32 L282 144 C282 154 270 162 248 162 L72 162 C50 162 38 154 38 144 Z" 
+            stroke="url(#rgRimLinear)" stroke-width="2.2" fill="none" />
+      <!-- Inner Rim Fine Hairline -->
+      <path d="M46 34 C46 25 58 20 74 20 L246 20 C262 20 274 25 274 34 L280 142 C280 152 268 159 248 159 L72 159 C52 159 40 152 40 142 Z" 
+            stroke="#FFF2F0" stroke-width="0.8" opacity="0.6" fill="none" />
+    </g>
+
+    <!-- 3. Rose Gold Plaque with Engraved Couple Initials "S & V" (#plaque) -->
+    <g id="plaque" transform="translate(160, 84)">
+      <!-- Soft Plaque Drop Shadow on Velvet -->
+      <rect x="-37" y="-19" width="74" height="38" rx="6" fill="#1C061A" opacity="0.6" />
+      
+      <!-- Plaque Body -->
+      <rect x="-36" y="-18" width="72" height="36" rx="5" fill="url(#rgPlaqueGrad)" stroke="#7A3F47" stroke-width="1" />
+      
+      <!-- Inset Hairline Bevel -->
+      <rect x="-33" y="-15" width="66" height="30" rx="3.5" fill="none" stroke="#FFF5F4" stroke-width="0.7" opacity="0.7" />
+
+      <!-- Four Corner Micro-Rivets -->
+      <circle cx="-30" cy="-12" r="1.2" fill="#7A3F47" />
+      <circle cx="30" cy="-12" r="1.2" fill="#7A3F47" />
+      <circle cx="-30" cy="12" r="1.2" fill="#7A3F47" />
+      <circle cx="30" cy="12" r="1.2" fill="#7A3F47" />
+
+      <!-- Engraved Couple Initials "S & V" -->
+      <!-- Shadow offset for engraved depth -->
+      <text x="0" y="6" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="600" letter-spacing="1.5" fill="#5E2B33" text-anchor="middle">S &amp; V</text>
+      <!-- Highlight edge on top -->
+      <text x="0" y="5.2" font-family="'Cormorant Garamond', Georgia, serif" font-size="19" font-weight="600" letter-spacing="1.5" fill="#FFF5F4" opacity="0.55" text-anchor="middle">S &amp; V</text>
+    </g>
+
+    <!-- 4. Front Edge Pearl-Like Clasp (#clasp) -->
+    <g id="clasp" transform="translate(160, 162)">
+      <!-- Rose Gold Clasp Cup / Bezel -->
+      <rect x="-14" y="-7" width="28" height="14" rx="4" fill="url(#rgRimLinear)" stroke="#7A3F47" stroke-width="0.8" />
+      <rect x="-12" y="-5" width="24" height="10" rx="3" fill="#6A2E36" opacity="0.6" />
+
+      <!-- Lustrous Pearl Cabochon -->
+      <ellipse cx="0" cy="0" rx="6" ry="4.5" fill="url(#pearlShine)" stroke="rgba(142, 79, 87, 0.4)" stroke-width="0.6" />
+      <!-- Specular Pearl Glint -->
+      <circle cx="-1.8" cy="-1.4" r="1.2" fill="#FFFFFF" />
+    </g>
+  </g>
+</svg>

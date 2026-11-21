@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 500" fill="none">
+  <!-- Elegant Mehrab Arch Window Frame -->
+  <path d="M20 500 L20 170 C20 76, 88 8, 170 8 C252 8, 320 76, 320 170 L320 500" stroke="#C98B8B" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M28 500 L28 172 C28 84, 92 18, 170 18 C248 18, 312 84, 312 172 L312 500" stroke="#C98B8B" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.6"/>
+  <!-- Arch Keystones / Dots -->
+  <circle cx="170" cy="8" r="3" fill="#C98B8B"/>
+  <circle cx="170" cy="28" r="1.5" fill="#C98B8B"/>
+</svg>

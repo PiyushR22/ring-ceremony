@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Velvet Plum Gradients -->
+    <linearGradient id="baseVelvetFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5C2D56" />
+      <stop offset="35%" stop-color="#4A2545" />
+      <stop offset="85%" stop-color="#32142E" />
+      <stop offset="100%" stop-color="#220B20" />
+    </linearGradient>
+
+    <linearGradient id="baseVelvetRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6B3A63" />
+      <stop offset="50%" stop-color="#4A2545" />
+      <stop offset="100%" stop-color="#2D122A" />
+    </linearGradient>
+
+    <!-- Rose Gold Metal Gradients -->
+    <linearGradient id="rgBaseHinge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E4F57" />
+      <stop offset="30%" stop-color="#E3B4B0" />
+      <stop offset="70%" stop-color="#B76E79" />
+      <stop offset="100%" stop-color="#7A3F47" />
+    </linearGradient>
+
+    <linearGradient id="rgBaseTrim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B76E79" opacity="0.4" />
+      <stop offset="50%" stop-color="#E3B4B0" opacity="0.9" />
+      <stop offset="100%" stop-color="#B76E79" opacity="0.4" />
+    </linearGradient>
+
+    <!-- Velvet Micro-Noise Texture -->
+    <filter id="velvetTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.07 0" />
+      <feBlend mode="overlay" in="SourceGraphic" result="blend" />
+    </filter>
+  </defs>
+
+  <g id="box-base-group" filter="url(#velvetTexture)">
+    <!-- Back Hinges (Two Rose Gold Knuckles visible at rear top edge) -->
+    <g id="base-hinges">
+      <!-- Left hinge knuckle -->
+      <rect x="74" y="24" width="22" height="10" rx="3" fill="url(#rgBaseHinge)" stroke="#7A3F47" stroke-width="0.8" />
+      <line x1="77" y1="28" x2="93" y2="28" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6" />
+      
+      <!-- Right hinge knuckle -->
+      <rect x="224" y="24" width="22" height="10" rx="3" fill="url(#rgBaseHinge)" stroke="#7A3F47" stroke-width="0.8" />
+      <line x1="227" y1="28" x2="243" y2="28" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6" />
+    </g>
+
+    <!-- Main Box Base Body (Book-style Chamfered Velvet Cup) -->
+    <!-- Base Shell Silhouette -->
+    <path d="M42 46 C42 34 54 28 72 28 L248 28 C266 28 278 34 278 46 L284 164 C284 178 272 186 250 186 L70 186 C48 186 36 178 36 164 Z" 
+          fill="url(#baseVelvetFront)" />
+
+    <!-- Left & Top Edge Soft Sheen Highlight -->
+    <path d="M42 46 C42 34 54 28 72 28 L248 28 C266 28 278 34 278 46 L281 90 L39 90 Z" 
+          fill="url(#baseVelvetRim)" opacity="0.55" />
+
+    <!-- Front Beveled Lip (Where lid seats) -->
+    <path d="M40 76 C40 68 50 64 68 64 L252 64 C270 64 280 68 280 76 L284 164 C284 178 272 186 250 186 L70 186 C48 186 36 178 36 164 Z" 
+          fill="url(#baseVelvetFront)" stroke="rgba(227, 180, 176, 0.25)" stroke-width="1" />
+
+    <!-- Rose Gold Lip Inset Line -->
+    <path d="M48 74 L272 74" stroke="url(#rgBaseTrim)" stroke-width="1.2" />
+
+    <!-- Embossed Fine Line Along Bottom Edge -->
+    <path d="M52 176 C64 179 80 180 100 180 L220 180 C240 180 256 179 268 176" 
+          stroke="url(#rgBaseTrim)" stroke-width="1.1" stroke-linecap="round" />
+    <path d="M54 180 C66 183 82 184 102 184 L218 184 C238 184 254 183 266 180" 
+          stroke="#220B20" stroke-width="1.2" opacity="0.8" stroke-linecap="round" />
+  </g>
+</svg>

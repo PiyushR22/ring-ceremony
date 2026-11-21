@@ -1,0 +1,246 @@
+/* ==========================================================================
+   css/intro.css - Cinematic Entry Sequence
+   1. Interlocking rings draw in on black screen.
+   2. Monogram in gold foil fades in.
+   3. "Press to enter" pulses.
+   4. On click/tap: rings glide apart like lens opening, warm light flares,
+      gold sparkle bursts, and dissolves into Chapter 1.
+   ========================================================================== */
+
+.intro-portal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--noir);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 1.2s var(--ease-cinema), visibility 1.2s;
+}
+
+.intro-portal.is-dissolved {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Subtle Vignette & Central Dark Light Bloom */
+.intro-portal::before {
+  content: "";
+  position: absolute;
+  width: min(500px, 80vw);
+  height: min(500px, 80vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--bordeaux-glow) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  animation: introBloomBreathe 6s ease-in-out infinite alternate;
+}
+
+@keyframes introBloomBreathe {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.85; }
+}
+
+/* Central Rings & Monogram Chamber */
+.intro-chamber {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
+/* Dual Ring SVG Drawing Animation */
+.intro-rings-svg {
+  width: clamp(140px, 35vw, 200px);
+  height: clamp(80px, 20vw, 120px);
+  overflow: visible;
+}
+
+.intro-ring-assembly {
+  transition: transform 1.2s var(--ease-cinema);
+}
+
+.intro-ring-assembly-1 {
+  transform-origin: 58px 45px;
+}
+
+.intro-ring-assembly-2 {
+  transform-origin: 102px 45px;
+}
+
+.intro-ring {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+}
+
+/* Animated Ring 1 Draw */
+.intro-ring-1 {
+  animation: drawRing 1.6s var(--ease-cinema) 0.3s forwards;
+}
+
+/* Animated Ring 2 Draw */
+.intro-ring-2 {
+  animation: drawRing 1.6s var(--ease-cinema) 0.8s forwards;
+}
+
+@keyframes drawRing {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.intro-gem {
+  opacity: 0;
+  animation: gemFadeIn 0.8s ease 1.1s forwards;
+}
+
+@keyframes gemFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Monogram Initials Centered Inside Rings & & in Middle */
+.intro-initial {
+  fill: #D4AF37;
+  fill: url(#introGoldFoil);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  animation: fadeInitial 1.4s var(--ease-cinema) 1.3s forwards;
+}
+
+.intro-initial-s {
+  font-size: 22px;
+}
+
+.intro-ampersand {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  transform-origin: 80px 45.5px;
+  opacity: 0;
+  animation: fadeInitial 1.4s var(--ease-cinema) 1.5s forwards;
+}
+
+.intro-initial-v {
+  font-size: 22px;
+}
+
+@keyframes fadeInitial {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Prompt: "Press to enter" */
+.intro-prompt {
+  margin-top: 2.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: promptPulse 3.5s ease-in-out infinite;
+  opacity: 0;
+  animation: promptPulse 3s ease-in-out infinite, promptFadeIn 1s ease 2s forwards;
+}
+
+.intro-prompt::before,
+.intro-prompt::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--hairline-foil);
+}
+
+@keyframes promptPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.95; transform: translateY(-2px); }
+}
+
+@keyframes promptFadeIn {
+  to { opacity: 0.7; }
+}
+
+/* Lens Opening Expansion on Trigger */
+.intro-portal.is-opening .intro-ring-assembly-1 {
+  transform: translateX(-40px) scale(1.15);
+  opacity: 0.2;
+  transition: transform 1.1s var(--ease-cinema), opacity 0.9s var(--ease-cinema);
+}
+
+.intro-portal.is-opening .intro-ring-assembly-2 {
+  transform: translateX(40px) scale(1.15);
+  opacity: 0.2;
+  transition: transform 1.1s var(--ease-cinema), opacity 0.9s var(--ease-cinema);
+}
+
+.intro-portal.is-opening .intro-ampersand {
+  opacity: 0;
+  transform: scale(1.3);
+  transition: transform 0.7s var(--ease-cinema), opacity 0.6s var(--ease-cinema);
+}
+
+.intro-portal.is-opening .intro-prompt {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Flare & Sparkle Burst on Open */
+.intro-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.3);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(243, 226, 174, 0.95) 0%, rgba(184, 146, 63, 0.6) 35%, rgba(74, 21, 33, 0.3) 60%, transparent 75%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 1.1s var(--ease-cinema), opacity 0.9s var(--ease-cinema);
+}
+
+.intro-portal.is-opening .intro-flare {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(2.8);
+}
+
+/* Prefers-Reduced-Motion Fallback */
+@media (prefers-reduced-motion: reduce) {
+  .intro-ring,
+  .intro-initial,
+  .intro-gem,
+  .intro-prompt,
+  .intro-portal::before {
+    animation: none !important;
+    opacity: 1 !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

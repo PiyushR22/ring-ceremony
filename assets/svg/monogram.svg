@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="goldFoilMono" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C6A2E" />
+      <stop offset="30%" stop-color="#E9D08F" />
+      <stop offset="55%" stop-color="#B8923F" />
+      <stop offset="75%" stop-color="#F3E2AE" />
+      <stop offset="100%" stop-color="#9A7632" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Fine Hairline Circle -->
+  <circle cx="60" cy="60" r="54" stroke="url(#goldFoilMono)" stroke-width="1.2" opacity="0.85" />
+  <circle cx="60" cy="60" r="50" stroke="url(#goldFoilMono)" stroke-width="0.7" stroke-dasharray="3 3" opacity="0.4" />
+
+  <!-- Tiny Ring Motif at Top -->
+  <g transform="translate(60, 16)">
+    <circle cx="0" cy="0" r="4.5" stroke="url(#goldFoilMono)" stroke-width="1" />
+    <polygon points="0,-7 2,-5 0,-3 -2,-5" fill="url(#goldFoilMono)" />
+  </g>
+
+  <!-- Couple Initials "S & V" -->
+  <text x="60" y="68" font-family="'Bodoni Moda', 'Playfair Display', Georgia, serif" font-size="28" font-weight="600" letter-spacing="2" fill="url(#goldFoilMono)" text-anchor="middle">S &amp; V</text>
+</svg>

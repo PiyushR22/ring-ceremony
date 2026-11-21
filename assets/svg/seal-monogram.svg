@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <!-- Plum Wax Seal Base with Irregular Deckled Rim -->
+  <path d="M30 4 C38 3, 46 7, 51 13 C56 19, 57 28, 55 35 C53 43, 47 50, 40 54 C32 57, 23 56, 16 52 C9 47, 4 39, 4 31 C3 23, 7 15, 13 10 C18 5, 24 4, 30 4 Z" fill="#1E2340"/>
+  <!-- Inner Ring Groove -->
+  <circle cx="30" cy="30" r="22" stroke="#C98B8B" stroke-width="1" stroke-dasharray="2 3" opacity="0.6"/>
+  <!-- Interlocking Rings Monogram -->
+  <circle cx="26" cy="24" r="7" stroke="#C98B8B" stroke-width="1.2"/>
+  <circle cx="34" cy="24" r="7" stroke="#C98B8B" stroke-width="1.2"/>
+  <!-- Initials Text S & V -->
+  <text x="30" y="42" font-family="'Cormorant Garamond', Georgia, serif" font-size="12" fill="#F6F4F8" text-anchor="middle" font-weight="600" letter-spacing="1">S &amp; V</text>
+</svg>

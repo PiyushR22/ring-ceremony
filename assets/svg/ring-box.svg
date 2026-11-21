@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 50" fill="none">
+  <!-- Velvet Box Base -->
+  <path d="M12 28 L15 42 Q16 45 20 45 L40 45 Q44 45 45 42 L48 28 Z" stroke="#C98B8B" stroke-width="1.25" fill="#1E2340"/>
+  <!-- Velvet Cushion Slot -->
+  <ellipse cx="30" cy="28" rx="17" ry="5" stroke="#C98B8B" stroke-width="1" fill="#20223A"/>
+  <!-- Box Lid (Open Angle) -->
+  <path d="M12 28 L17 12 Q19 9 23 9 L37 9 Q41 9 43 12 L48 28 Z" stroke="#C98B8B" stroke-width="1.25" fill="#1E2340" fill-opacity="0.85"/>
+  <!-- Ring Standing in Cushion -->
+  <circle cx="30" cy="23" r="7" stroke="#C98B8B" stroke-width="1.2"/>
+  <polygon points="30 14, 32 16, 30 18, 28 16" fill="#F6F4F8" stroke="#C98B8B" stroke-width="0.8"/>
+  <path d="M30 11 L30.8 13 L33 14 L30.8 15 L30 17 L29.2 15 L27 14 L29.2 13 Z" fill="#C98B8B"/>
+</svg>

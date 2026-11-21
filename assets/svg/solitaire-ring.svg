@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Rose Gold Metal Band Gradients -->
+    <linearGradient id="rgBand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8E4F57" />
+      <stop offset="25%" stop-color="#E3B4B0" />
+      <stop offset="50%" stop-color="#B76E79" />
+      <stop offset="75%" stop-color="#F2D8D6" />
+      <stop offset="100%" stop-color="#7A3F47" />
+    </linearGradient>
+
+    <!-- Diamond Facet Shading Gradients -->
+    <linearGradient id="diaTable" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F9F6F8" />
+      <stop offset="100%" stop-color="#EDDFE4" />
+    </linearGradient>
+
+    <linearGradient id="diaFacetLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#D7E1F2" />
+    </linearGradient>
+
+    <linearGradient id="diaFacetRight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0F3" />
+      <stop offset="100%" stop-color="#E5C7D0" />
+    </linearGradient>
+
+    <linearGradient id="diaCenterKite" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FAF4F6" />
+      <stop offset="100%" stop-color="#DFC4CD" />
+    </linearGradient>
+
+    <!-- Diamond Aura / Glow -->
+    <radialGradient id="diaAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#F7E6EA" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#B76E79" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <g id="solitaire-ring-group">
+    <!-- Soft Diamond Aura Behind -->
+    <circle cx="60" cy="38" r="28" fill="url(#diaAura)" opacity="0.6" class="dia-aura-pulse" />
+
+    <!-- 1. Lower Ring Band Disappearing into Cushion Slit -->
+    <!-- Outer polished band -->
+    <ellipse cx="60" cy="88" rx="34" ry="34" stroke="url(#rgBand)" stroke-width="4.2" stroke-linecap="round" fill="none" />
+    <!-- Inner reflection hairline -->
+    <ellipse cx="60" cy="88" rx="32.5" ry="32.5" stroke="#FFF5F4" stroke-width="0.8" opacity="0.65" fill="none" />
+    
+    <!-- Base shadow where band penetrates velvet slit -->
+    <ellipse cx="60" cy="120" rx="14" ry="4" fill="#1C061A" opacity="0.75" />
+
+    <!-- 2. Solitaire Setting / Basket (Rose Gold 4-Prong Crown) -->
+    <g id="ring-basket">
+      <!-- Setting base bridge -->
+      <path d="M46 56 Q60 62 74 56" stroke="url(#rgBand)" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M49 55 L54 44" stroke="url(#rgBand)" stroke-width="2.4" stroke-linecap="round" />
+      <path d="M71 55 L66 44" stroke="url(#rgBand)" stroke-width="2.4" stroke-linecap="round" />
+      <circle cx="60" cy="52" r="2.2" fill="#E3B4B0" />
+    </g>
+
+    <!-- 3. Brilliant Faceted Diamond Gem (Crisp Polygons) -->
+    <g id="diamond-gem" transform="translate(60, 36)">
+      <!-- Crown Pavilion Silhouette -->
+      <!-- Lower Pavilion Base -->
+      <polygon points="0,18 -18,2 -26,-2 26,-2 18,2" fill="#E0C2CB" stroke="#B76E79" stroke-width="0.6" />
+      
+      <!-- Pavilion Facets -->
+      <polygon points="0,18 -10,0 0,0" fill="#EDD3DC" />
+      <polygon points="0,18 0,0 10,0" fill="#FFFFFF" />
+      <polygon points="0,18 10,0 18,2" fill="#D8BAC3" />
+      <polygon points="0,18 -18,2 -10,0" fill="#CBD4E8" />
+
+      <!-- Girdle Line -->
+      <line x1="-26" y1="-2" x2="26" y2="-2" stroke="#B76E79" stroke-width="0.8" />
+
+      <!-- Crown Facets -->
+      <!-- Left Outer Kite -->
+      <polygon points="-26,-2 -16,-16 -9,-2" fill="url(#diaFacetLeft)" stroke="#B76E79" stroke-width="0.5" />
+      <!-- Left Inner Star -->
+      <polygon points="-16,-16 0,-18 -9,-2" fill="#FFFFFF" stroke="#B76E79" stroke-width="0.5" />
+      <!-- Center Main Table -->
+      <polygon points="-16,-16 16,-16 0,-6" fill="url(#diaTable)" stroke="#B76E79" stroke-width="0.6" />
+      <polygon points="-9,-2 0,-6 9,-2 0,0" fill="url(#diaCenterKite)" stroke="#B76E79" stroke-width="0.5" />
+      <!-- Right Inner Star -->
+      <polygon points="16,-16 0,-18 9,-2" fill="#FFFFFF" stroke="#B76E79" stroke-width="0.5" />
+      <!-- Right Outer Kite -->
+      <polygon points="26,-2 16,-16 9,-2" fill="url(#diaFacetRight)" stroke="#B76E79" stroke-width="0.5" />
+
+      <!-- Four Prongs Clasping Diamond Corners -->
+      <circle cx="-16.5" cy="-16.5" r="2.2" fill="url(#rgBand)" stroke="#7A3F47" stroke-width="0.5" />
+      <circle cx="16.5" cy="-16.5" r="2.2" fill="url(#rgBand)" stroke="#7A3F47" stroke-width="0.5" />
+      <circle cx="-25" cy="-1.5" r="2.2" fill="url(#rgBand)" stroke="#7A3F47" stroke-width="0.5" />
+      <circle cx="25" cy="-1.5" r="2.2" fill="url(#rgBand)" stroke="#7A3F47" stroke-width="0.5" />
+
+      <!-- Prong Highlights -->
+      <circle cx="-16.8" cy="-17.2" r="0.8" fill="#FFFFFF" />
+      <circle cx="16.2" cy="-17.2" r="0.8" fill="#FFFFFF" />
+    </g>
+
+    <!-- 4. 4-Point Star Sparkle (Flashes on open & twinkles) -->
+    <g id="sparkle-gem" class="sparkle-gem-twinkle" transform="translate(68, 20)">
+      <!-- Sparkle Core Rays -->
+      <path d="M0 -15 Q0 0 15 0 Q0 0 0 15 Q0 0 -15 0 Q0 0 0 -15 Z" fill="#FFFFFF" />
+      <!-- Rose Gold Accent Rays -->
+      <path d="M0 -9 Q0 0 9 0 Q0 0 0 9 Q0 0 -9 0 Q0 0 0 -9 Z" fill="#E3B4B0" opacity="0.8" />
+      <!-- Diagonal Micro Sparklets -->
+      <line x1="-5" y1="-5" x2="5" y2="5" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" />
+      <line x1="5" y1="-5" x2="-5" y2="5" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="2.2" fill="#FFFFFF" />
+    </g>
+  </g>
+</svg>
