@@ -10,7 +10,7 @@
   let isAudioPlaying = false;
   let isAudioMuted = localStorage.getItem('luxury_audio_muted') === 'true';
 
-  // Pentatonic chime scale (Yaman/Kalyan ragam notes for royal Indian luxury)
+  // Pentatonic chime scale (Yaman/Kalyan ragam notes for elegant Indian music)
   const CHIME_FREQS = [293.66, 329.63, 369.99, 440.00, 493.88, 587.33, 659.25];
 
   function playAmbientChime() {
@@ -115,7 +115,7 @@
           'PRODID:-//Midnight Gold//Ring Ceremony//EN',
           'METHOD:PUBLISH',
           'BEGIN:VEVENT',
-          `UID:${Date.now()}@ringceremony.royal`,
+          `UID:${Date.now()}@ringceremony.event`,
           `DTSTAMP:${formatICS(new Date())}`,
           `DTSTART:${formatICS(start)}`,
           `DTEND:${formatICS(end)}`,

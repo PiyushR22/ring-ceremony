@@ -25,7 +25,7 @@ const CONFIG = {
 
   // Logistics & Venue
   timeRange: "01:00 PM to 05:00 PM",
-  timeNote: "Followed by Royal Feast",
+  timeNote: "Followed by Lunch",
 
   venueName: "Hotel Samdareeya Inn",
   venueAddress: "Russel Chowk, Napier Town, Jabalpur, Madhya Pradesh 482001",
@@ -75,7 +75,7 @@ const CONFIG = {
   timeline: [
     { time: "01:00 PM", titleEn: "Arrival & Welcoming Guests", titleHi: "अतिथि आगमन एवं स्वागत सत्कार" },
     { time: "02:00 PM", titleEn: "Auspicious Ring Exchange", titleHi: "शुभ सगाई एवं अंगूठी रस्म" },
-    { time: "03:00 PM", titleEn: "Royal Feast & Family Blessings", titleHi: "शाही प्रीतिभोज एवं आशीर्वाद" },
+    { time: "03:00 PM", titleEn: "Lunch & Family Blessings", titleHi: "प्रीतिभोज (लंच) एवं आशीर्वाद" },
     { time: "04:30 PM", titleEn: "Photographs & Sweet Celebrations", titleHi: "छायाचित्र एवं मधुर स्मृतियाँ" }
   ],
 
@@ -108,7 +108,7 @@ const CONFIG = {
       celebrationTimeLabel: "TIME",
       celebrationVenueLabel: "VENUE",
       celebrationOccasionLabel: "CEREMONY",
-      celebrationOccasionVal: "Auspicious Ring Exchange & Feast",
+      celebrationOccasionVal: "Auspicious Ring Exchange & Lunch",
       programmeTitle: "Programme",
       venueTitle: "The Venue",
       getDirectionsBtn: "Get Directions",
@@ -134,7 +134,7 @@ const CONFIG = {
       celebrationTimeLabel: "समय",
       celebrationVenueLabel: "स्थान",
       celebrationOccasionLabel: "समारोह",
-      celebrationOccasionVal: "अंगूठी रस्म एवं शाही प्रीतिभोज",
+      celebrationOccasionVal: "अंगूठी रस्म एवं प्रीतिभोज",
       programmeTitle: "कार्यक्रम रूपरेखा",
       venueTitle: "कार्यक्रम स्थल",
       getDirectionsBtn: "दिशा-निर्देश (गूगल मैप्स)",

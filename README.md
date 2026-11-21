@@ -1,6 +1,6 @@
 # Midnight & Gold Foil • Luxury Ring Ceremony Invitation
 
-A cinematic, quiet, expensive digital invitation for the Ring Ceremony of **Shailja & Vikas**, styled like high-fashion luxury stationery and a royal magazine feature.
+A cinematic, quiet, expensive digital invitation for the Ring Ceremony of **Shailja & Vikas**, styled like high-fashion luxury stationery.
 
 ## Features
 - **Cinematic Entry:** Gold rings draw in, monogram glows, and opens with an optical lens separation and warm flare.
