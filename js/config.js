@@ -41,12 +41,10 @@ const CONFIG = {
     mode: "firestore", // "firestore" live backend active
     askGuestCount: false, // Set to true to display guest count stepper (- 1 +)
     maxGuests: 4,
-    replyBy: "25th November 2026",
-    replyByHi: "25 नवंबर 2026",
     texts: {
       en: {
         heading: "Will you celebrate with us?",
-        replyByPrefix: "Kindly let us know by ",
+        subtitle: "Kindly let us know if you will be joining us",
         acceptBtn: "Accept Invitation",
         declineBtn: "Regretfully, I can't attend",
         guestCountLabel: "Number of guests (including you)",
@@ -59,7 +57,7 @@ const CONFIG = {
       },
       hi: {
         heading: "क्या आप हमारे साथ इस उत्सव में शामिल होंगे?",
-        replyByPrefix: "कृपया हमें सूचित करें ",
+        subtitle: "कृपया अपनी गरिमामयी उपस्थिति से हमें अवगत कराएं",
         acceptBtn: "निमंत्रण स्वीकार करें",
         declineBtn: "खेद है, मैं उपस्थित नहीं हो पाऊँगा/पाऊँगी",
         guestCountLabel: "अतिथियों की संख्या (आपको मिलाकर)",

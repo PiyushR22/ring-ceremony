@@ -69,11 +69,8 @@
     }
 
     const replyByEl = document.getElementById("acceptanceReplyBy");
-    if (replyByEl && texts.replyByPrefix) {
-      const replyDate = currentLang === "hi" 
-        ? (CONFIG.acceptance.replyByHi || CONFIG.acceptance.replyBy) 
-        : CONFIG.acceptance.replyBy;
-      replyByEl.textContent = texts.replyByPrefix + replyDate;
+    if (replyByEl && texts.subtitle) {
+      replyByEl.textContent = texts.subtitle;
     }
 
     // Buttons
