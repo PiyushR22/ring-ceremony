@@ -56,9 +56,11 @@
 
     const archScript = document.getElementById('archCoupleScript');
     if (archScript) {
-      archScript.textContent = lang === 'hi'
-        ? `${CONFIG.brideNameHi} एवं ${CONFIG.groomNameHi}`
-        : `${CONFIG.brideName} & ${CONFIG.groomName}`;
+      if (lang === 'hi') {
+        archScript.innerHTML = `<span class="arch-bride">${CONFIG.brideNameHi}</span> <span class="arch-amp">एवं</span> <span class="arch-groom">${CONFIG.groomNameHi}</span>`;
+      } else {
+        archScript.innerHTML = `<span class="arch-bride">${CONFIG.brideName}</span> <span class="arch-amp">&amp;</span> <span class="arch-groom">${CONFIG.groomName}</span>`;
+      }
     }
 
     // Update Personalized Guest Salutation if no custom ?to= param
