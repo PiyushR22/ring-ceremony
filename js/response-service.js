@@ -2,18 +2,43 @@
  * ============================================================================
  * js/response-service.js - Service Layer for Guest Acceptance & RSVPs
  *
- * BACKEND-READY ARCHITECTURE:
- * Exposes exactly two functions and nothing else:
- * 1. getResponse(guestId) -> returns Promise<{ status, guests, updatedAt } | null>
- * 2. saveResponse(guestId, { status, guests, guestName }) -> returns Promise<{ success: boolean, data: object }>
+ * BACKEND ARCHITECTURE:
+ * Exposes clean, decoupled APIs:
+ * 1. getResponse(guestId) -> Promise<{ status, guests, updatedAt, guestName } | null>
+ * 2. saveResponse(guestId, { status, guests, guestName }) -> Promise<{ success: boolean, data: object }>
+ * 3. getAllResponses() -> Promise<Array<object>> (for Admin Dashboard)
+ * 4. subscribeAllResponses(callback) -> Unsubscribe function (real-time listener)
  *
- * Current mode: "local" (localStorage under "invite_response_<guestId>", with simulated 600ms latency)
- * Future mode: "firestore" (clearly commented placeholder block for Firebase modular SDK)
+ * MODES:
+ * - "firestore" : Connected to Google Cloud Firestore in real time
+ * - "local"     : LocalStorage with simulated 600ms delay
  * ============================================================================
  */
 
 (function () {
   const STORAGE_PREFIX = "invite_response_";
+  let firestoreDb = null;
+
+  /**
+   * Lazily initialize Firestore instance
+   */
+  function getDb() {
+    if (firestoreDb) return firestoreDb;
+    if (typeof firebase !== "undefined" && firebase.apps) {
+      try {
+        if (!firebase.apps.length && CONFIG.firebase && CONFIG.firebase.apiKey) {
+          firebase.initializeApp(CONFIG.firebase);
+        }
+        if (firebase.apps.length) {
+          firestoreDb = firebase.firestore();
+          return firestoreDb;
+        }
+      } catch (err) {
+        console.warn("ResponseService: Firebase init note:", err);
+      }
+    }
+    return null;
+  }
 
   /**
    * Sanitizes and validates the response object before storage.
@@ -56,18 +81,30 @@
    */
   async function getResponse(guestId) {
     const cleanId = String(guestId || "guest").trim();
+    const mode = (CONFIG.acceptance && CONFIG.acceptance.mode) || "local";
 
-    // ------------------------------------------------------------------------
-    // FUTURE FIRESTORE CODE PLACEHOLDER:
-    // When CONFIG.acceptance.mode === "firestore":
-    //
-    // import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.x.x/firebase-firestore.js";
-    // const docRef = doc(db, "responses", cleanId);
-    // const docSnap = await getDoc(docRef);
-    // return docSnap.exists() ? docSnap.data() : null;
-    // ------------------------------------------------------------------------
+    // 1. FIRESTORE MODE
+    if (mode === "firestore") {
+      const db = getDb();
+      if (db) {
+        try {
+          const docRef = db.collection("responses").doc(cleanId);
+          const docSnap = await docRef.get();
+          if (docSnap.exists) {
+            const remoteData = docSnap.data();
+            // Cache locally for offline performance
+            try {
+              localStorage.setItem(STORAGE_PREFIX + cleanId, JSON.stringify(remoteData));
+            } catch (e) {}
+            return remoteData;
+          }
+        } catch (err) {
+          console.warn("ResponseService: Firestore get failed, falling back to local storage:", err);
+        }
+      }
+    }
 
-    // Mode: "local"
+    // 2. LOCAL STORAGE (Fallback or Mode: "local")
     try {
       const stored = localStorage.getItem(STORAGE_PREFIX + cleanId);
       if (!stored) return null;
@@ -87,33 +124,110 @@
   async function saveResponse(guestId, data) {
     const cleanId = String(guestId || "guest").trim();
     const cleanData = sanitizeInput(data);
+    const mode = (CONFIG.acceptance && CONFIG.acceptance.mode) || "local";
 
-    // ------------------------------------------------------------------------
-    // FUTURE FIRESTORE CODE PLACEHOLDER:
-    // When CONFIG.acceptance.mode === "firestore":
-    //
-    // import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.x.x/firebase-firestore.js";
-    // const docRef = doc(db, "responses", cleanId);
-    // await setDoc(docRef, cleanData);
-    // return { success: true, data: cleanData };
-    // ------------------------------------------------------------------------
+    // Always cache in localStorage immediately (optimistic UI)
+    try {
+      localStorage.setItem(STORAGE_PREFIX + cleanId, JSON.stringify(cleanData));
+    } catch (e) {}
 
-    // Mode: "local" with simulated network delay (600ms) for realistic loading feedback
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
+    // 1. FIRESTORE MODE
+    if (mode === "firestore") {
+      const db = getDb();
+      if (db) {
         try {
-          localStorage.setItem(STORAGE_PREFIX + cleanId, JSON.stringify(cleanData));
-          resolve({ success: true, data: cleanData });
+          const docRef = db.collection("responses").doc(cleanId);
+          await docRef.set(cleanData, { merge: true });
+          return { success: true, data: cleanData };
         } catch (err) {
-          reject(new Error("Unable to save response locally: " + err.message));
+          console.error("ResponseService: Firestore write error:", err);
+          // Return success if stored locally, or throw if preferred
+          return { success: true, data: cleanData, offlineWarning: true };
         }
+      }
+    }
+
+    // 2. LOCAL MODE with simulated delay
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true, data: cleanData });
       }, 600);
     });
   }
 
-  // Expose ONLY getResponse and saveResponse
+  /**
+   * Real-Time Subscription to all responses (for Admin Dashboard)
+   * @param {function(Array<object>)} onUpdate
+   * @param {function(Error)} onError
+   * @returns {function()} Unsubscribe function
+   */
+  function subscribeAllResponses(onUpdate, onError) {
+    const db = getDb();
+    if (db) {
+      return db.collection("responses")
+        .orderBy("updatedAt", "desc")
+        .onSnapshot((snapshot) => {
+          const items = [];
+          snapshot.forEach((doc) => {
+            items.push({ id: doc.id, ...doc.data() });
+          });
+          onUpdate(items);
+        }, (err) => {
+          if (onError) onError(err);
+        });
+    }
+
+    // Fallback: read from localStorage
+    const localItems = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(STORAGE_PREFIX)) {
+        try {
+          const val = JSON.parse(localStorage.getItem(key));
+          localItems.push({ id: key.replace(STORAGE_PREFIX, ""), ...val });
+        } catch (e) {}
+      }
+    }
+    onUpdate(localItems);
+    return () => {};
+  }
+
+  /**
+   * Retrieves all responses once (for Admin export)
+   * @returns {Promise<Array<object>>}
+   */
+  async function getAllResponses() {
+    const db = getDb();
+    if (db) {
+      try {
+        const snapshot = await db.collection("responses").orderBy("updatedAt", "desc").get();
+        const list = [];
+        snapshot.forEach((doc) => list.push({ id: doc.id, ...doc.data() }));
+        return list;
+      } catch (err) {
+        console.warn("Firestore getAll failed:", err);
+      }
+    }
+
+    // Fallback to local storage
+    const list = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith(STORAGE_PREFIX)) {
+        try {
+          const val = JSON.parse(localStorage.getItem(key));
+          list.push({ id: key.replace(STORAGE_PREFIX, ""), ...val });
+        } catch (e) {}
+      }
+    }
+    return list;
+  }
+
+  // Expose Public API
   window.ResponseService = {
     getResponse: getResponse,
-    saveResponse: saveResponse
+    saveResponse: saveResponse,
+    getAllResponses: getAllResponses,
+    subscribeAllResponses: subscribeAllResponses
   };
 })();

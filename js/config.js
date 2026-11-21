@@ -38,7 +38,7 @@ const CONFIG = {
 
   // Acceptance & RSVP Configuration (Backend-ready for local storage & future Firestore)
   acceptance: {
-    mode: "local", // "local" now, "firestore" later
+    mode: "firestore", // "firestore" live backend active
     askGuestCount: false, // Set to true to display guest count stepper (- 1 +)
     maxGuests: 4,
     replyBy: "25th November 2026",
@@ -84,6 +84,16 @@ const CONFIG = {
     { time: "03:00 PM", titleEn: "Royal Feast & Family Blessings", titleHi: "शाही प्रीतिभोज एवं आशीर्वाद" },
     { time: "04:30 PM", titleEn: "Photographs & Sweet Celebrations", titleHi: "छायाचित्र एवं मधुर स्मृतियाँ" }
   ],
+
+  // Firebase Web App Configuration (Connected for Real-Time Firestore)
+  firebase: {
+    apiKey: "AIzaSyAg7KAg8sBLgMjJGKeWD46eNsIsKQC5jL8",
+    authDomain: "ring-ceremony-e2a81.firebaseapp.com",
+    projectId: "ring-ceremony-e2a81",
+    storageBucket: "ring-ceremony-e2a81.firebasestorage.app",
+    messagingSenderId: "743533340081",
+    appId: "1:743533340081:web:d889c184122694e5ae8990"
+  },
 
   // Multilingual Texts (English & Hindi)
   i18n: {
