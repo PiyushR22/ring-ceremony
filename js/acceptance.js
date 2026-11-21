@@ -206,11 +206,21 @@
     setButtonLoading(false);
   }
 
+  function clearError() {
+    const errorBanner = document.getElementById("acceptanceError");
+    if (errorBanner) {
+      errorBanner.textContent = "";
+      errorBanner.style.display = "none";
+    }
+  }
+
   function showError(msg) {
     const errorBanner = document.getElementById("acceptanceError");
     if (errorBanner) {
       const texts = getLangTexts();
-      errorBanner.textContent = msg || texts.errorMsg || "Something went wrong, please try again.";
+      errorBanner.textContent = (typeof msg === "string" && msg.trim().length > 0)
+        ? msg
+        : (texts.errorMsg || "Something went wrong, please try again.");
       errorBanner.style.display = "block";
     }
   }
@@ -264,7 +274,7 @@
    * Action Handlers
    */
   async function handleAccept() {
-    showError("");
+    clearError();
     setButtonLoading(true);
 
     try {
@@ -284,7 +294,7 @@
   }
 
   async function handleDecline() {
-    showError("");
+    clearError();
     setButtonLoading(true);
 
     try {
