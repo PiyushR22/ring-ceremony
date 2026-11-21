@@ -137,47 +137,7 @@
       });
     }
 
-    // 5. Share Invitation (Web Share API with Copy Link Fallback)
-    const shareBtn = document.getElementById('btnShareInvite');
-    const toast = document.getElementById('luxuryToast');
-
-    function showToast(msg) {
-      if (!toast) return;
-      toast.textContent = msg;
-      toast.classList.add('is-visible');
-      setTimeout(() => {
-        toast.classList.remove('is-visible');
-      }, 3500);
-    }
-
-    if (shareBtn) {
-      shareBtn.addEventListener('click', async () => {
-        const shareData = {
-          title: `Ring Ceremony • ${CONFIG.brideName} & ${CONFIG.groomName}`,
-          text: `You are cordially invited to the Ring Ceremony of ${CONFIG.brideName} & ${CONFIG.groomName} at ${CONFIG.venueName}, Jabalpur.`,
-          url: window.location.href
-        };
-
-        if (navigator.share) {
-          try {
-            await navigator.share(shareData);
-          } catch (err) {
-            // User cancelled or share dismissed
-          }
-        } else {
-          // Fallback to Clipboard copy
-          try {
-            await navigator.clipboard.writeText(window.location.href);
-            const currentLang = localStorage.getItem('luxury_lang') || 'en';
-            showToast(CONFIG.i18n[currentLang].linkCopiedToast);
-          } catch (err) {
-            showToast("Link: " + window.location.href);
-          }
-        }
-      });
-    }
-
-    // 6. Ambient Floating Gold Sparkles (Capped at 6 mobile / 15 desktop)
+    // 4. Ambient Floating Gold Sparkles (Capped at 6 mobile / 15 desktop)
     initAmbientSparkles();
   }
 

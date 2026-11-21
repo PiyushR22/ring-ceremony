@@ -115,7 +115,6 @@ const CONFIG = {
       venueTitle: "The Venue",
       getDirectionsBtn: "Get Directions",
       calendarBtn: "Add to Calendar",
-      shareBtn: "Share Invitation",
       closingQuote: "We can't wait to celebrate with you",
       closingLove: "With love & warm regards,",
       linkCopiedToast: "Invitation link copied to clipboard!"
@@ -142,7 +141,6 @@ const CONFIG = {
       venueTitle: "कार्यक्रम स्थल",
       getDirectionsBtn: "दिशा-निर्देश (गूगल मैप्स)",
       calendarBtn: "कैलेंडर में जोड़ें",
-      shareBtn: "निमंत्रण साझा करें",
       closingQuote: "आपके स्नेहिल आगमन की प्रतीक्षा में...",
       closingLove: "स्नेह एवं आदर सहित,",
       linkCopiedToast: "निमंत्रण लिंक कॉपी हो गया है!"
