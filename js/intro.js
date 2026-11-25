@@ -24,6 +24,10 @@
         window.LuxuryAudio.startAudio();
       }
 
+      // Ensure Chapter 1 is marked in view immediately on portal dissolve
+      const cover = document.getElementById('chapter-cover');
+      if (cover) cover.classList.add('is-in-view');
+
       if (prefersReducedMotion) {
         portal.classList.add('is-dissolved');
         return;

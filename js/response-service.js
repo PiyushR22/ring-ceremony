@@ -165,12 +165,13 @@
     const db = getDb();
     if (db) {
       return db.collection("responses")
-        .orderBy("updatedAt", "desc")
         .onSnapshot((snapshot) => {
           const items = [];
           snapshot.forEach((doc) => {
             items.push({ id: doc.id, ...doc.data() });
           });
+          // Sort client-side by date descending
+          items.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
           onUpdate(items);
         }, (err) => {
           if (onError) onError(err);
@@ -200,9 +201,10 @@
     const db = getDb();
     if (db) {
       try {
-        const snapshot = await db.collection("responses").orderBy("updatedAt", "desc").get();
+        const snapshot = await db.collection("responses").get();
         const list = [];
         snapshot.forEach((doc) => list.push({ id: doc.id, ...doc.data() }));
+        list.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
         return list;
       } catch (err) {
         console.warn("Firestore getAll failed:", err);

@@ -234,12 +234,30 @@
 
     btnCopy.addEventListener('click', async () => {
       const textToCopy = resultUrl.textContent;
-      try {
-        await navigator.clipboard.writeText(textToCopy);
+      let copied = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          copied = true;
+        } catch (e) {}
+      }
+      if (!copied) {
+        try {
+          const tempArea = document.createElement('textarea');
+          tempArea.value = textToCopy;
+          tempArea.style.position = 'fixed';
+          tempArea.style.opacity = '0';
+          document.body.appendChild(tempArea);
+          tempArea.select();
+          copied = document.execCommand('copy');
+          document.body.removeChild(tempArea);
+        } catch (e) {}
+      }
+      if (copied) {
         toast.classList.add('is-visible');
         setTimeout(() => toast.classList.remove('is-visible'), 3000);
-      } catch (err) {
-        alert("Copy link manually: " + textToCopy);
+      } else {
+        prompt("Copy link manually:", textToCopy);
       }
     });
   </script>

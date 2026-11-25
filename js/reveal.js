@@ -13,11 +13,13 @@
     const salutationEl = document.getElementById('guestSalutation');
 
     if (salutationEl) {
+      const currentLang = localStorage.getItem('luxury_lang') || 'en';
       if (guestParam && guestParam.trim().length > 0) {
-        // Safe injection with textContent
-        salutationEl.textContent = `Dear ${guestParam.trim()},`;
+        salutationEl.textContent = currentLang === 'hi' 
+          ? `सादर ${guestParam.trim()},` 
+          : `Dear ${guestParam.trim()},`;
       } else {
-        salutationEl.textContent = CONFIG.i18n.en.salutationDefault;
+        salutationEl.textContent = CONFIG.i18n[currentLang]?.salutationDefault || CONFIG.i18n.en.salutationDefault;
       }
     }
 
@@ -36,7 +38,7 @@
       });
     }, {
       root: null,
-      threshold: 0.18
+      threshold: 0.05
     });
 
     sections.forEach(section => observer.observe(section));

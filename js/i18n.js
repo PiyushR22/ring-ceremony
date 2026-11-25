@@ -63,12 +63,18 @@
       }
     }
 
-    // Update Personalized Guest Salutation if no custom ?to= param
+    // Update Personalized Guest Salutation if custom ?to= param or default
     const urlParams = new URLSearchParams(window.location.search);
     const guestParam = urlParams.get('to');
     const salutationEl = document.getElementById('guestSalutation');
-    if (salutationEl && (!guestParam || guestParam.trim().length === 0)) {
-      salutationEl.textContent = dict.salutationDefault;
+    if (salutationEl) {
+      if (guestParam && guestParam.trim().length > 0) {
+        salutationEl.textContent = lang === 'hi' 
+          ? `सादर ${guestParam.trim()},` 
+          : `Dear ${guestParam.trim()},`;
+      } else {
+        salutationEl.textContent = dict.salutationDefault;
+      }
     }
   }
 
